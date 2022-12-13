@@ -1,9 +1,11 @@
-"""
-Copyright (c) Contributors to the Open 3D Engine Project.
-For complete copyright and license terms please see the LICENSE at the root of this distribution.
+#
+# Copyright (c) Contributors to the Open 3D Engine Project.
+# For complete copyright and license terms please see the LICENSE at the root of this distribution.
+#
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+#
 
-SPDX-License-Identifier: Apache-2.0 OR MIT
-"""
+
 import pathlib
 
 from ament_index_python.packages import get_package_share_directory
@@ -13,13 +15,18 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
+
 def generate_launch_description():
     return LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([str(pathlib.Path(
-                get_package_share_directory('slam_toolbox')).joinpath('launch', 'online_async_launch.py'))]),
-            launch_arguments = {
-                'slam_params_file': str(pathlib.Path(__file__).parent.absolute().joinpath('config', 'slam_params.yaml'))
+                get_package_share_directory('slam_toolbox')).joinpath(
+                    'launch',
+                    'online_async_launch.py'))]),
+            launch_arguments={
+                'slam_params_file': str(pathlib.Path(__file__).parent.absolute().joinpath(
+                    'config',
+                    'slam_params.yaml'))
             }.items()
         ),
         Node(
