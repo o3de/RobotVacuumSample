@@ -7,8 +7,8 @@
 #
 
 set(FILES
-    Include/ROS2-Gem-Demo/ROS2-Gem-DemoBus.h
-    Source/ROS2-Gem-DemoSystemComponent.cpp
-    Source/ROS2-Gem-DemoSystemComponent.h
+    Include/RobotVacuumSample/RobotVacuumSampleBus.h
+    Source/RobotVacuumSampleSystemComponent.cpp
+    Source/RobotVacuumSampleSystemComponent.h
     enabled_gems.cmake
 )

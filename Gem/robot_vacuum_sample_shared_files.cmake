@@ -7,5 +7,5 @@
 #
 
 set(FILES
-    Source/ROS2-Gem-DemoModule.cpp
+    Source/RobotVacuumSampleModule.cpp
 )

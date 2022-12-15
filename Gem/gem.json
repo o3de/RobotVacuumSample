@@ -1,17 +1,17 @@
 {
-    "gem_name": "ROS2-Gem-Demo",
-    "display_name": "ROS2-Gem-Demo",
-    "license": "What license ROS2-Gem-Demo uses goes here: i.e. Apache-2.0 or MIT",
-    "license_url": "Link to the license web site goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
-    "origin": "The name of the originator goes here. i.e. XYZ Inc.",
-    "origin_url": "The primary repo for ROS2-Gem-Demo goes here: i.e. http://www.mydomain.com",
+    "gem_name": "RobotVacuumSample",
+    "display_name": "RobotVacuumSample",
+    "license": "Apache-2.0 or MIT",
+    "license_url": "https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
+    "origin": "O3DE",
+    "origin_url": "https://github.com/o3de/RobotVacuumSample",
     "type": "",
-    "summary": "A short description of ROS2-Gem-Demo.",
+    "summary": "A short description of RobotVacuumSample Gem.",
     "canonical_tags": [
         "Gem"
     ],
     "user_tags": [
-        "ROS2-Gem-Demo"
+        "RobotVacuumSample"
     ],
     "icon_path": "preview.png",
     "requirements": "",

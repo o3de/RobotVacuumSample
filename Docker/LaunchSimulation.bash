@@ -15,7 +15,7 @@ export LD_LIBRARY_PATH=/data/workspace/o3de-demo-project/build/linux/bin/profile
 if [ -d /data/workspace/o3de-demo-project/build/linux/bin/profile ]
 then
     cd /data/workspace/o3de-demo-project/build/linux/bin/profile
-    ./ROS2-Gem-Demo.GameLauncher -bg_ConnectToAssetProcessor=0 > /data/workspace/simulation_launch.log 2>&1
+    ./RobotVacuumSample.GameLauncher -bg_ConnectToAssetProcessor=0 > /data/workspace/simulation_launch.log 2>&1
 else
     echo "Simulation not installed on this image"
 fi

@@ -1,6 +1,6 @@
 # RobotVacuumSample
 
-This project demonstrates how ROS2 Gem for O3DE can be used with a scene (The Loft project) and ROS 2 navigation stack.
+This sample project demonstrates a robotic vacuum simulation project navigating through the O3DE Loft scene using the ROS 2 Gem and the ROS 2 navigation stack.
 
 ![image](https://user-images.githubusercontent.com/16702721/174113203-e22cfd37-1bd5-4e42-a543-17b92de96c13.png)
 
@@ -21,7 +21,7 @@ This project has the following dependencies:
   - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/RobotecAI/o3de-ros2-gem#requirements)  
 - [Loft Scene Sample](https://github.com/aws-lumberyard/loft-arch-vis-sample)
   - `development` branch (the default) should work.
-- [ROS Gem Demo Project](https://github.com/RobotecAI/o3de-demo-project)
+- [Robot Vacuum Sample Project](https://github.com/o3de/RobotVacuumSample)
   - `main` branch (the default) should work.
 
 ## Setup Instructions
@@ -77,7 +77,7 @@ $ cd $DEMO_BASE
 ~/o3de-demo-project$ git lfs install
 ~/o3de-demo-project$ $DEMO_BASE/scripts/o3de.sh register -pp .
 ~/o3de-demo-project$ cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
-~/o3de-demo-project$ cmake --build build/linux --config profile --target ROS2-Gem-Demo Editor AssetProcessor
+~/o3de-demo-project$ cmake --build build/linux --config profile --target RobotVacuumSample Editor AssetProcessor
 ```
 
 ### 5. Launch Editor

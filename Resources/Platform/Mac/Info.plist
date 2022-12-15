@@ -5,11 +5,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<false/>
 	<key>CFBundleDisplayName</key>
-	<string>ROS2-Gem-Demo</string>
+	<string>RobotVacuumSample</string>
 	<key>CFBundleExecutable</key>
-	<string>ROS2-Gem-Demo.GameLauncher</string>
+	<string>RobotVacuumSample.GameLauncher</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.amazon.ROS2-Gem-Demo</string>
+	<string>com.amazon.RobotVacuumSample</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

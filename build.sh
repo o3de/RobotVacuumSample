@@ -1,1 +1,1 @@
-cmake --build build/linux --config profile --target ROS2-Gem-Demo Editor AssetProcessor -j4
+cmake --build build/linux --config profile --target RobotVacuumSample Editor AssetProcessor -j4

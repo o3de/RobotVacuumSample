@@ -7,7 +7,7 @@
 #
 
 set(ENABLED_GEMS
-    ROS2-Gem-Demo
+    RobotVacuumSample
     Atom
     CameraFramework
     DebugDraw

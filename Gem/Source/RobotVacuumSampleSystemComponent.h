@@ -10,7 +10,7 @@
 
 #include <AzCore/Component/Component.h>
 
-#include <ROS2-Gem-Demo/ROS2-Gem-DemoBus.h>
+#include <RobotVacuumSample/RobotVacuumSampleBus.h>
 
 namespace RobotVacuumSample
 {

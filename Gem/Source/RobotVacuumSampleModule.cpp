@@ -9,7 +9,7 @@
 #include <AzCore/Memory/SystemAllocator.h>
 #include <AzCore/Module/Module.h>
 
-#include "ROS2-Gem-DemoSystemComponent.h"
+#include "RobotVacuumSampleSystemComponent.h"
 
 namespace RobotVacuumSample
 {

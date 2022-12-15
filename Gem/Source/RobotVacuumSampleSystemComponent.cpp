@@ -10,7 +10,7 @@
 #include <AzCore/Serialization/EditContext.h>
 #include <AzCore/Serialization/EditContextConstants.inl>
 
-#include "ROS2-Gem-DemoSystemComponent.h"
+#include "RobotVacuumSampleSystemComponent.h"
 
 namespace RobotVacuumSample
 {
