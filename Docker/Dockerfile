@@ -118,7 +118,7 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         $WORKSPACE/o3de/scripts/o3de.sh register -pp $WORKSPACE/o3de-demo-project/  && \
         . /opt/ros/${ROS_VERSION}/setup.sh && \
         cmake -B $WORKSPACE/o3de-demo-project/build/linux -S $WORKSPACE/o3de-demo-project -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON && \
-        cmake --build $WORKSPACE/o3de-demo-project/build/linux --config profile --target AssetProcessorBatch ROS2-Gem-Demo.GameLauncher RobotVacuumSample.Assets -j 20 && \
+        cmake --build $WORKSPACE/o3de-demo-project/build/linux --config profile --target AssetProcessorBatch ROS2-Gem-Demo.GameLauncher RobotVacuumSample.Assets && \
         $WORKSPACE/cleanup.bash; \
     elif [  "${IMAGE_TYPE}" = "navstack" ]; then \
         apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-desktop && \
