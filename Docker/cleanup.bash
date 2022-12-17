@@ -8,7 +8,7 @@
 
 # Delete files that were only needed for the Client and AssetProcessing after a build of the code and assets are complete
 
-DELETE_LIST=(o3de-ros2-gem/ \
+DELETE_LIST=(o3de-extras/ \
              loft-arch-vis-sample/ \
              ~/.o3de/3rdParty/ \
              o3de/.git \
@@ -16,30 +16,30 @@ DELETE_LIST=(o3de-ros2-gem/ \
              o3de/python/downloaded_packages \
              o3de/Code \
              o3de/Gems \
-             o3de-demo-project/.git \
-             o3de-demo-project/Gem \
-             o3de-demo-project/Source \
-             o3de-demo-project/Levels \
-             o3de-demo-project/ReflectionProbes \
-             o3de-demo-project/build/linux/Azcg/ \
-             o3de-demo-project/build/linux/CMake \
-             o3de-demo-project/build/linux/CMakeFiles/ \
-             o3de-demo-project/build/linux/External/ \
-             o3de-demo-project/build/linux/Testing/ \
-             o3de-demo-project/build/linux/_deps/ \
-             o3de-demo-project/build/linux/cmake \
-             o3de-demo-project/build/linux/lib/ \
-             o3de-demo-project/build/linux/o3de/ \
-             o3de-demo-project/build/linux/packages/ \
-             o3de-demo-project/build/linux/runtime_dependencies/ \
-             o3de-demo-project/build/linux/bin/profile/*.Editor.so \
-             o3de-demo-project/build/linux/bin/profile/EditorPlugins \
-             o3de-demo-project/build/linux/bin/profile/Editor \
-             o3de-demo-project/build/linux/bin/profile/AssetProcessor \
-             o3de-demo-project/build/linux/bin/profile/AssetProcessorBatch \
-             o3de-demo-project/build/linux/bin/profile/MaterialEditor \
-             o3de-demo-project/build/linux/bin/profile/AssetBuilder \
-             o3de-demo-project/build/linux/bin/profile/MaterialCanvas )
+             RobotVacuumSample/.git \
+             RobotVacuumSample/Gem \
+             RobotVacuumSample/Source \
+             RobotVacuumSample/Levels \
+             RobotVacuumSample/ReflectionProbes \
+             RobotVacuumSample/build/linux/Azcg/ \
+             RobotVacuumSample/build/linux/CMake \
+             RobotVacuumSample/build/linux/CMakeFiles/ \
+             RobotVacuumSample/build/linux/External/ \
+             RobotVacuumSample/build/linux/Testing/ \
+             RobotVacuumSample/build/linux/_deps/ \
+             RobotVacuumSample/build/linux/cmake \
+             RobotVacuumSample/build/linux/lib/ \
+             RobotVacuumSample/build/linux/o3de/ \
+             RobotVacuumSample/build/linux/packages/ \
+             RobotVacuumSample/build/linux/runtime_dependencies/ \
+             RobotVacuumSample/build/linux/bin/profile/*.Editor.so \
+             RobotVacuumSample/build/linux/bin/profile/EditorPlugins \
+             RobotVacuumSample/build/linux/bin/profile/Editor \
+             RobotVacuumSample/build/linux/bin/profile/AssetProcessor \
+             RobotVacuumSample/build/linux/bin/profile/AssetProcessorBatch \
+             RobotVacuumSample/build/linux/bin/profile/MaterialEditor \
+             RobotVacuumSample/build/linux/bin/profile/AssetBuilder \
+             RobotVacuumSample/build/linux/bin/profile/MaterialCanvas )
 
 for i in ${DELETE_LIST[@]}
 do

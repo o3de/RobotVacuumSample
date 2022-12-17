@@ -23,13 +23,13 @@ ARG IMAGE_TYPE=simulation  # Default to 'simulation'
 ARG O3DE_REPO=https://github.com/o3de/o3de.git
 ARG O3DE_BRANCH=development
 
-ARG ROS2_GEM_REPO=https://github.com/RobotecAI/o3de-ros2-gem.git
+ARG ROS2_GEM_REPO=https://github.com/o3de/o3de-extras.git
 ARG ROS2_GEM_BRANCH=development
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
 ARG LOFT_GEM_BRANCH=main
 
-ARG ROBOT_VAC_SAMPLE_REPO=https://github.com/RobotecAI/o3de-demo-project.git
+ARG ROBOT_VAC_SAMPLE_REPO=https://github.com/o3de/RobotVacuumSample.git
 ARG ROBOT_VAC_SAMPLE_BRANCH=main
 
 ENV WORKSPACE=/data/workspace
@@ -104,27 +104,27 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         $WORKSPACE/o3de/python/get_python.sh && \
         $WORKSPACE/o3de/scripts/o3de.sh register -ep $WORKSPACE/o3de && \
         git clone $ROS2_GEM_REPO && \
-        git -C $WORKSPACE/o3de-ros2-gem checkout $ROS2_GEM_BRANCH &&\
-        $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/o3de-ros2-gem && \
+        git -C $WORKSPACE/o3de-extras checkout $ROS2_GEM_BRANCH &&\
+        $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/o3de-extras/Gems/ROS2 && \
         git clone --recursive $LOFT_GEM_REPO && \
         git -C $WORKSPACE/loft-arch-vis-sample checkout $LOFT_GEM_BRANCH &&\
         git -C $WORKSPACE/loft-arch-vis-sample lfs install && \
         git -C $WORKSPACE/loft-arch-vis-sample lfs pull && \
         $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/loft-arch-vis-sample/Gems/ArchVis/ && \
         git clone --recursive $ROBOT_VAC_SAMPLE_REPO && \
-        git -C $WORKSPACE/o3de-demo-project checkout $ROBOT_VAC_SAMPLE_BRANCH &&\
-        git -C $WORKSPACE/o3de-demo-project lfs install && \
-        git -C $WORKSPACE/o3de-demo-project lfs pull && \
-        $WORKSPACE/o3de/scripts/o3de.sh register -pp $WORKSPACE/o3de-demo-project/  && \
+        git -C $WORKSPACE/RobotVacuumSample checkout $ROBOT_VAC_SAMPLE_BRANCH &&\
+        git -C $WORKSPACE/RobotVacuumSample lfs install && \
+        git -C $WORKSPACE/RobotVacuumSample lfs pull && \
+        $WORKSPACE/o3de/scripts/o3de.sh register -pp $WORKSPACE/RobotVacuumSample/  && \
         . /opt/ros/${ROS_VERSION}/setup.sh && \
-        cmake -B $WORKSPACE/o3de-demo-project/build/linux -S $WORKSPACE/o3de-demo-project -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON && \
-        cmake --build $WORKSPACE/o3de-demo-project/build/linux --config profile --target AssetProcessorBatch ROS2-Gem-Demo.GameLauncher RobotVacuumSample.Assets && \
+        cmake -B $WORKSPACE/RobotVacuumSample/build/linux -S $WORKSPACE/RobotVacuumSample -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON && \
+        cmake --build $WORKSPACE/RobotVacuumSample/build/linux --config profile --target AssetProcessorBatch RobotVacuumSample.GameLauncher RobotVacuumSample.Assets && \
         $WORKSPACE/cleanup.bash; \
     elif [  "${IMAGE_TYPE}" = "navstack" ]; then \
         apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-desktop && \
         cd $WORKSPACE && \
         git clone --recursive $ROBOT_VAC_SAMPLE_REPO && \
-        git -C $WORKSPACE/o3de-demo-project checkout $ROBOT_VAC_SAMPLE_BRANCH; \
+        git -C $WORKSPACE/RobotVacuumSample checkout $ROBOT_VAC_SAMPLE_BRANCH; \
     else \
         echo "Unsupported IMAGE_TYPE: ${IMAGE_TYPE}" && exit 1; \
     fi

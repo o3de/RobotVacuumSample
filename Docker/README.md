@@ -104,9 +104,9 @@ The Dockerscripts use the following arguments to determine the repository to pul
 | Argument              | Repository                       | Default     |
 |-----------------------|----------------------------------|-------------|
 | O3DE_REPO             | O3DE                             | https://github.com/o3de/o3de.git                   |
-| ROS2_GEM_REPO         | O3DE ROS2 Gem                    | https://github.com/RobotecAI/o3de-ros2-gem.git     |
+| ROS2_GEM_REPO         | O3DE ROS2 Gem                    | https://github.com/o3de/o3de-extras.git            |
 | LOFT_GEM_REPO         | Loft ArchVis Sample Scene        | https://github.com/o3de/loft-arch-vis-sample.git   |
-| ROBOT_VAC_SAMPLE_REPO | Loft Scene Simulation repository | https://github.com/RobotecAI/o3de-demo-project.git |
+| ROBOT_VAC_SAMPLE_REPO | Loft Scene Simulation repository | https://github.com/o3de/RobotVacuumSample          |
 
 In addition the repositories, the following arguments target the branch, commit, or tag to pull from their corresponding repository
 

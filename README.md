@@ -17,8 +17,8 @@ Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/
 This project has the following dependencies:
 
 - [O3DE](https://github.com/o3de/o3de)
-- [ROS2 Gem](https://github.com/RobotecAI/o3de-ros2-gem)
-  - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/RobotecAI/o3de-ros2-gem#requirements)  
+- [ROS2 Gem](https://github.com/o3de/o3de-extras/Gems/ROS2)
+  - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/Gems/ROS2#requirements)  
 - [Loft Scene Sample](https://github.com/aws-lumberyard/loft-arch-vis-sample)
   - `development` branch (the default) should work.
 - [Robot Vacuum Sample Project](https://github.com/o3de/RobotVacuumSample)
@@ -53,8 +53,8 @@ $ cd $DEMO_BASE
 
 ```
 ~$ cd $DEMO_BASE
-~$ git clone https://github.com/RobotecAI/o3de-ros2-gem.git
-~$ $DEMO_BASE/o3de/scripts/o3de.sh register -gp $DEMO_BASE/o3de-ros2-gem
+~$ git clone https://github.com/o3de/o3de-extras.git
+~$ $DEMO_BASE/o3de/scripts/o3de.sh register -gp $DEMO_BASE/Gems/ROS2
 ```
 
 ### 3. Clone and register the Loft Scene project locally
@@ -72,20 +72,20 @@ $ cd $DEMO_BASE
 
 ```
 $ cd $DEMO_BASE
-~/$ git clone https://github.com/RobotecAI/o3de-demo-project.git
-~$ cd o3de-demo-project
-~/o3de-demo-project$ git lfs install
-~/o3de-demo-project$ $DEMO_BASE/scripts/o3de.sh register -pp .
-~/o3de-demo-project$ cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
-~/o3de-demo-project$ cmake --build build/linux --config profile --target RobotVacuumSample Editor AssetProcessor
+~/$ git clone https://github.com/o3de/RobotVacuumSample.git
+~$ cd RobotVacuumSample
+~/RobotVacuumSample$ git lfs install
+~/RobotVacuumSample$ $DEMO_BASE/scripts/o3de.sh register -pp .
+~/RobotVacuumSample$ cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
+~/RobotVacuumSample$ cmake --build build/linux --config profile --target RobotVacuumSample Editor AssetProcessor
 ```
 
 ### 5. Launch Editor
 
 ```
 $ cd $DEMO_BASE
-~/$ cd o3de-demo-project/build/linux/bin/profile
-~/o3de-demo-project/build/linux/bin/profile$ ./Editor
+~/$ cd RobotVacuumSample/build/linux/bin/profile
+~/RobotVacuumSample/build/linux/bin/profile$ ./Editor
 ```
 
 ## Running ROS2 navigation example
@@ -114,7 +114,7 @@ sudo apt install -y ros-${ROS_DISTRO}-slam-toolbox ros-${ROS_DISTRO}-navigation2
 The launch file is included in this repository
 
 ```
-~/o3de-demo-project/launch$ ros2 launch navigation.launch.py
+~/RobotVacuumSample/launch$ ros2 launch navigation.launch.py
 ```
 
 You should see output in the console as well as RViz2 window.

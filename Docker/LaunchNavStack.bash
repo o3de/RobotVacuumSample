@@ -10,7 +10,7 @@ unset LD_LIBRARY_PATH
 
 source /opt/ros/$ROS_DISTRO/setup.bash
 
-cd /data/workspace/o3de-demo-project/launch
+cd /data/workspace/RobotVacuumSample/launch
 
 ros2 launch navigation.launch.py
 
