@@ -1,0 +1,21 @@
+{
+    "gem_name": "RobotVacuumSample",
+    "display_name": "RobotVacuumSample",
+    "license": "Apache-2.0 or MIT",
+    "license_url": "https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
+    "origin": "O3DE",
+    "origin_url": "https://github.com/o3de/RobotVacuumSample",
+    "type": "",
+    "summary": "A short description of RobotVacuumSample Gem.",
+    "canonical_tags": [
+        "Gem"
+    ],
+    "user_tags": [
+        "RobotVacuumSample"
+    ],
+    "icon_path": "preview.png",
+    "requirements": "",
+    "documentation_url": "",
+    "dependencies": [
+    ]
+}
