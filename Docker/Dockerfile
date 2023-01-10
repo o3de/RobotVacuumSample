@@ -96,6 +96,7 @@ COPY cleanup.bash /data/workspace/cleanup.bash
 
 # Clone O3DE repos, register, build, and cleanup in the same layer to reduce the size
 RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
+        apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-desktop && \
         cd $WORKSPACE && \
         git clone --recursive $O3DE_REPO && \
         git -C $WORKSPACE/o3de checkout $O3DE_BRANCH &&\
