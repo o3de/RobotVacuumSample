@@ -19,7 +19,7 @@ This project has the following dependencies:
 - [O3DE](https://github.com/o3de/o3de)
 - [ROS2 Gem](https://github.com/o3de/o3de-extras/Gems/ROS2)
   - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/Gems/ROS2#requirements)  
-- [Loft Scene Sample](https://github.com/aws-lumberyard/loft-arch-vis-sample)
+- [Loft Scene Sample](https://github.com/o3de/loft-arch-vis-sample)
   - `development` branch (the default) should work.
 - [Robot Vacuum Sample Project](https://github.com/o3de/RobotVacuumSample)
   - `main` branch (the default) should work.
@@ -61,7 +61,7 @@ $ cd $DEMO_BASE
 
 ```
 $ cd $DEMO_BASE
-~$ git clone https://github.com/aws-lumberyard/loft-arch-vis-sample.git
+~$ git clone https://github.com/o3de/loft-arch-vis-sample.git
 ~$ cd loft-arch-vis-sample
 ~/loft-arch-vis-sample$ git lfs install
 ~/loft-arch-vis-sample$ git lfs pull
