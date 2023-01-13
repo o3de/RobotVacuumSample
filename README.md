@@ -17,8 +17,8 @@ Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/
 This project has the following dependencies:
 
 - [O3DE](https://github.com/o3de/o3de)
-- [ROS2 Gem](https://github.com/o3de/o3de-extras/Gems/ROS2)
-  - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/Gems/ROS2#requirements)  
+- [ROS2 Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/ROS2)
+  - ROS 2 (Galactic or Humble) itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/tree/development/Gems/ROS2#requirements)
 - [Loft Scene Sample](https://github.com/o3de/loft-arch-vis-sample)
   - `development` branch (the default) should work.
 - [Robot Vacuum Sample Project](https://github.com/o3de/RobotVacuumSample)
@@ -54,7 +54,7 @@ $ cd $DEMO_BASE
 ```
 ~$ cd $DEMO_BASE
 ~$ git clone https://github.com/o3de/o3de-extras.git
-~$ $DEMO_BASE/o3de/scripts/o3de.sh register -gp $DEMO_BASE/Gems/ROS2
+~$ $DEMO_BASE/o3de/scripts/o3de.sh register -gp $DEMO_BASE/o3de-extras/Gems/ROS2
 ```
 
 ### 3. Clone and register the Loft Scene project locally
@@ -72,10 +72,10 @@ $ cd $DEMO_BASE
 
 ```
 $ cd $DEMO_BASE
-~/$ git clone https://github.com/o3de/RobotVacuumSample.git
+~$ git clone https://github.com/o3de/RobotVacuumSample.git
 ~$ cd RobotVacuumSample
 ~/RobotVacuumSample$ git lfs install
-~/RobotVacuumSample$ $DEMO_BASE/scripts/o3de.sh register -pp .
+~/RobotVacuumSample$ $DEMO_BASE/o3de/scripts/o3de.sh register -pp .
 ~/RobotVacuumSample$ cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
 ~/RobotVacuumSample$ cmake --build build/linux --config profile --target RobotVacuumSample Editor AssetProcessor
 ```
@@ -84,7 +84,7 @@ $ cd $DEMO_BASE
 
 ```
 $ cd $DEMO_BASE
-~/$ cd RobotVacuumSample/build/linux/bin/profile
+~$ cd RobotVacuumSample/build/linux/bin/profile
 ~/RobotVacuumSample/build/linux/bin/profile$ ./Editor
 ```
 
