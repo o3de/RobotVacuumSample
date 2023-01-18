@@ -20,8 +20,12 @@ on Ubuntu 22.04 (jammy) with the ROS2 Humble distribution. For example, to build
 command:
 
 ```
-sudo docker build -t o3de_robot_vacuum_simulation:latest .
+build --build-arg O3DE_BRANCH=199205f --build-arg O3DE_EXTRAS_BRANCH=cbd3cd5 --build-arg LOFT_GEM_BRANCH=eed5208 -t o3de_robot_vacuum_simulation:latest .
 ```
+
+**Note** 
+The above command example tags specific commits for o3de, the ros2 gem, and the loft scene asset repos and are based on known working commits. See the Advanced Options section below for more information.
+
 
 This will create a docker image named 'o3de_robot_vacuum_simulation' with the tag 'latest' that contains both the simulation launcher and the 
 navigation stack. It will also contain helper scripts that will launch either the simulation (LaunchSimulation.bash) or 
@@ -104,7 +108,7 @@ The Dockerscripts use the following arguments to determine the repository to pul
 | Argument              | Repository                       | Default     |
 |-----------------------|----------------------------------|-------------|
 | O3DE_REPO             | O3DE                             | https://github.com/o3de/o3de.git                   |
-| ROS2_GEM_REPO         | O3DE ROS2 Gem                    | https://github.com/o3de/o3de-extras.git            |
+| O3DE_EXTRAS_REPO      | O3DE Extras                      | https://github.com/o3de/o3de-extras.git            |
 | LOFT_GEM_REPO         | Loft ArchVis Sample Scene        | https://github.com/o3de/loft-arch-vis-sample.git   |
 | ROBOT_VAC_SAMPLE_REPO | Loft Scene Simulation repository | https://github.com/o3de/RobotVacuumSample          |
 
@@ -113,7 +117,9 @@ In addition the repositories, the following arguments target the branch, commit,
 | Argument                | Repository                       | Default     |
 |-------------------------|----------------------------------|-------------|
 | O3DE_BRANCH             | O3DE                             | development |
-| ROS2_GEM_BRANCH         | O3DE ROS2 Gem                    | development |
+| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | development |
 | LOFT_GEM_BRANCH         | Loft ArchVis Sample Scene        | main        |
 | ROBOT_VAC_SAMPLE_BRANCH | Loft Scene Simulation repository | main        |
 
+### Optimizing the build process ###
+The docker script provides a cmake-specific argument override to control the number of parallel jobs that can be used during the build of the docker image. ```CMAKE_JOBS``` sets the maximum number of concurrent jobs cmake will run during its build process and defaults to 8 jobs. This number can be adjusted to better suit the hardware which is running the docker image build.
