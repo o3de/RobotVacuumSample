@@ -10,8 +10,8 @@ the components necessary to run the O3DE demo project simulator through the O3DE
 * Ubuntu 20.04 (Focal) or 22.04 (Jammy)
 * At least 60 GB of free disk space
 * Docker installed and configured
+  * **Note** It is recommended to have Docker installed correctly and in a secure manner so that the docker commands in this guide do not require elevated priviledges (sudo) in order to run them. See [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/) for more details.
 * [NVidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
-* SUDO Access
 
 ## Building the Docker Image
 
@@ -20,7 +20,8 @@ on Ubuntu 22.04 (jammy) with the ROS2 Humble distribution. For example, to build
 command:
 
 ```
-build --build-arg O3DE_BRANCH=199205f --build-arg O3DE_EXTRAS_BRANCH=cbd3cd5 --build-arg LOFT_GEM_BRANCH=eed5208 -t o3de_robot_vacuum_simulation:latest .
+
+docker build --build-arg O3DE_BRANCH=199205f --build-arg O3DE_EXTRAS_BRANCH=cbd3cd5 --build-arg LOFT_GEM_BRANCH=eed5208 -t o3de_robot_vacuum_simulation:latest .
 ```
 
 **Note** 
@@ -35,7 +36,7 @@ You can also create a separate docker image that only contains the navigation st
 ```IMAGE_TYPE``` and setting it to 'navstack':
 
 ```
-sudo docker build --build-arg IMAGE_TYPE=navstack -t o3de_robot_vacuum_navstack:latest .
+docker build --build-arg IMAGE_TYPE=navstack -t o3de_robot_vacuum_navstack:latest .
 ```
 
 ROS2 allows for communication across multiple docker images running on the same host, provided that they specify the 'bridge' 
@@ -57,13 +58,13 @@ xhost +local:root
 Then launch the built simulation docker image with the following command
 
 ```
-sudo docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
+docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
 ```
 
 Once the simulation is up and running, launch the robot application docker image, which will bring up RViz to control the robot.
 
 ```
-sudo docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
+docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
 
 ```
 
