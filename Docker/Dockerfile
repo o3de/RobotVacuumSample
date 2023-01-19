@@ -17,20 +17,21 @@ ARG UBUNTU_VERSION
 # Argument to determining the image type ('simulation' or 'navstack')
 ARG IMAGE_TYPE=simulation  # Default to 'simulation'
 
-
 # Arguments for the source repos needed for the robot vacuum sample docker
-
 ARG O3DE_REPO=https://github.com/o3de/o3de.git
 ARG O3DE_BRANCH=development
 
-ARG ROS2_GEM_REPO=https://github.com/o3de/o3de-extras.git
-ARG ROS2_GEM_BRANCH=development
+ARG O3DE_EXTRAS_REPO=https://github.com/o3de/o3de-extras.git
+ARG O3DE_EXTRAS_BRANCH=development
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
 ARG LOFT_GEM_BRANCH=main
 
 ARG ROBOT_VAC_SAMPLE_REPO=https://github.com/o3de/RobotVacuumSample.git
 ARG ROBOT_VAC_SAMPLE_BRANCH=main
+
+# Additional argument to control build concurrency
+ARG CMAKE_JOBS=8
 
 ENV WORKSPACE=/data/workspace
 
@@ -104,8 +105,8 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         git -C $WORKSPACE/o3de lfs pull && \
         $WORKSPACE/o3de/python/get_python.sh && \
         $WORKSPACE/o3de/scripts/o3de.sh register -ep $WORKSPACE/o3de && \
-        git clone $ROS2_GEM_REPO && \
-        git -C $WORKSPACE/o3de-extras checkout $ROS2_GEM_BRANCH &&\
+        git clone $O3DE_EXTRAS_REPO && \
+        git -C $WORKSPACE/o3de-extras checkout $O3DE_EXTRAS_BRANCH &&\
         $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/o3de-extras/Gems/ROS2 && \
         git clone --recursive $LOFT_GEM_REPO && \
         git -C $WORKSPACE/loft-arch-vis-sample checkout $LOFT_GEM_BRANCH &&\
@@ -119,7 +120,7 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         $WORKSPACE/o3de/scripts/o3de.sh register -pp $WORKSPACE/RobotVacuumSample/  && \
         . /opt/ros/${ROS_VERSION}/setup.sh && \
         cmake -B $WORKSPACE/RobotVacuumSample/build/linux -S $WORKSPACE/RobotVacuumSample -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON && \
-        cmake --build $WORKSPACE/RobotVacuumSample/build/linux --config profile --target AssetProcessorBatch RobotVacuumSample.GameLauncher RobotVacuumSample.Assets && \
+        cmake --build $WORKSPACE/RobotVacuumSample/build/linux --config profile --target AssetProcessorBatch RobotVacuumSample.GameLauncher RobotVacuumSample.Assets -j $CMAKE_JOBS && \
         $WORKSPACE/cleanup.bash; \
     elif [  "${IMAGE_TYPE}" = "navstack" ]; then \
         apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-desktop && \
