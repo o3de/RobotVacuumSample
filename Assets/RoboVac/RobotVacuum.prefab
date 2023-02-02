@@ -830,6 +830,10 @@
             "Id": "Entity_[29879337505275]",
             "Name": "robot_vacuum_screenbody",
             "Components": {
+                "Component_[1034281967815404319]": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 1034281967815404319
+                },
                 "Component_[12038150070017414966]": {
                     "$type": "EditorMaterialComponent",
                     "Id": 12038150070017414966,
@@ -862,11 +866,6 @@
                                 {
                                     "Name": "Paint - Enamel Glossy (Black)"
                                 }
-                            ]
-                        },
-                        "MaterialSelection": {
-                            "MaterialIds": [
-                                {}
                             ]
                         }
                     },
@@ -1084,11 +1083,6 @@
                                         {
                                             "Name": "Plastic - Sensor"
                                         }
-                                    ]
-                                },
-                                "MaterialSelection": {
-                                    "MaterialIds": [
-                                        {}
                                     ]
                                 }
                             },
@@ -3725,6 +3719,10 @@
             "Id": "Entity_[30016776458747]",
             "Name": "robot_vacuum_base_link",
             "Components": {
+                "Component_[11858580036815791673]": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 11858580036815791673
+                },
                 "Component_[1817880946152815022]": {
                     "$type": "EditorColliderComponent",
                     "Id": 1817880946152815022,
@@ -3734,11 +3732,6 @@
                                 {
                                     "Name": "ABS (White)"
                                 }
-                            ]
-                        },
-                        "MaterialSelection": {
-                            "MaterialIds": [
-                                {}
                             ]
                         }
                     },
@@ -4613,13 +4606,6 @@
                                     "Name": "Entire object"
                                 }
                             ]
-                        },
-                        "MaterialSelection": {
-                            "MaterialIds": [
-                                {
-                                    "MaterialId": "{4080A6D4-AF4E-41CE-B7C9-7699C07123E7}"
-                                }
-                            ]
                         }
                     },
                     "ShapeConfigs": [
@@ -4700,8 +4686,6 @@
                     "Id": 7715341178742189308,
                     "m_template": {
                         "$type": "ROS2RobotControlComponent",
-                        "ControlConfiguration": {
-                        },
                         "SubscriberConfiguration": {
                             "Type": "ackermann_msgs::msg::AckermannDrive",
                             "Topic": "cmd_vel"
@@ -4857,7 +4841,6 @@
                                 }
                             }
                         },
-                        "LidarTransparentEntityId": "",
                         "LidarParameters": {
                             "Layers": 16,
                             "Points per layer": 516,
@@ -5068,7 +5051,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6700600896017100313]/Transform Data/Translate/0",
-                    "value": -0.09387588500976563
+                    "value": -0.09387588500976564
                 },
                 {
                     "op": "replace",
