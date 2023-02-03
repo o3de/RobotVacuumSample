@@ -61,12 +61,20 @@ Then launch the built simulation docker image with the following command
 docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
 ```
 
-Once the simulation is up and running, launch the robot application docker image, which will bring up RViz to control the robot.
+Once the simulation is up and running, launch the navigation stack inside the simulation docker image, which will bring up RViz to control the robot.
+
+```
+docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchNavStack.bash
+
+```
+
+If you created a separate docker image 'o3de_robot_vacuum_navstack:latest' which only contains the navigation stack and Rviz2, you can launch it using that image, provided that the simulation docker image 'o3de_robot_vacuum_simulation' is running.
 
 ```
 docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
-
 ```
+
+
 
 Make sure to revoke access to the X server when the simulation ends.
 
