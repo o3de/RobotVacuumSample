@@ -19,10 +19,10 @@ ARG IMAGE_TYPE=simulation  # Default to 'simulation'
 
 # Arguments for the source repos needed for the robot vacuum sample docker
 ARG O3DE_REPO=https://github.com/o3de/o3de.git
-ARG O3DE_BRANCH=development
+ARG O3DE_BRANCH=606fed5
 
 ARG O3DE_EXTRAS_REPO=https://github.com/o3de/o3de-extras.git
-ARG O3DE_EXTRAS_BRANCH=development
+ARG O3DE_EXTRAS_BRANCH=f1d8afe
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
 ARG LOFT_GEM_BRANCH=main
@@ -90,8 +90,8 @@ RUN apt-get install -y --no-install-recommends git \
                        ros-${ROS_VERSION}-gazebo-msgs \
                        ros-${ROS_VERSION}-ackermann-msgs \
                        ros-${ROS_VERSION}-rmw-cyclonedds-cpp \
-                       ros-${ROS_VERSION}-control-toolbox
-
+                       ros-${ROS_VERSION}-control-toolbox \
+                       ros-${ROS_VERSION}-nav-msgs 
 
 COPY cleanup.bash /data/workspace/cleanup.bash
 

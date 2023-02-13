@@ -21,7 +21,7 @@ command:
 
 ```
 
-docker build --build-arg O3DE_BRANCH=199205f --build-arg O3DE_EXTRAS_BRANCH=cbd3cd5 --build-arg LOFT_GEM_BRANCH=eed5208 -t o3de_robot_vacuum_simulation:latest .
+docker build -t o3de_robot_vacuum_simulation:latest .
 ```
 
 **Note** 
@@ -117,8 +117,8 @@ In addition the repositories, the following arguments target the branch, commit,
 
 | Argument                | Repository                       | Default     |
 |-------------------------|----------------------------------|-------------|
-| O3DE_BRANCH             | O3DE                             | development |
-| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | development |
+| O3DE_BRANCH             | O3DE                             | 606fed5     |
+| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | f1d8afe     |
 | LOFT_GEM_BRANCH         | Loft ArchVis Sample Scene        | main        |
 | ROBOT_VAC_SAMPLE_BRANCH | Loft Scene Simulation repository | main        |
 
