@@ -25,7 +25,7 @@ ARG O3DE_EXTRAS_REPO=https://github.com/o3de/o3de-extras.git
 ARG O3DE_EXTRAS_BRANCH=f1d8afe
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
-ARG LOFT_GEM_BRANCH=main
+ARG LOFT_GEM_BRANCH=658ad5f
 
 ARG ROBOT_VAC_SAMPLE_REPO=https://github.com/o3de/RobotVacuumSample.git
 ARG ROBOT_VAC_SAMPLE_BRANCH=main
