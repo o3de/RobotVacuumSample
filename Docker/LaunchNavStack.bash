@@ -13,4 +13,3 @@ source /opt/ros/$ROS_DISTRO/setup.bash
 cd /data/workspace/RobotVacuumSample/launch
 
 ros2 launch navigation.launch.py
-

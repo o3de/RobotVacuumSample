@@ -83,15 +83,15 @@ RUN apt-get install -y --no-install-recommends git \
                        libxcb-randr0 \
                        libnvidia-gl-470 \
                        ufw \
-                       ros-${ROS_VERSION}-slam-toolbox \
-                       ros-${ROS_VERSION}-navigation2 \
-                       ros-${ROS_VERSION}-nav2-bringup \
-                       ros-${ROS_VERSION}-pointcloud-to-laserscan \
-                       ros-${ROS_VERSION}-gazebo-msgs \
-                       ros-${ROS_VERSION}-ackermann-msgs \
-                       ros-${ROS_VERSION}-rmw-cyclonedds-cpp \
-                       ros-${ROS_VERSION}-control-toolbox \
-                       ros-${ROS_VERSION}-nav-msgs 
+                       ros-${ROS_DISTRO}-slam-toolbox \
+                       ros-${ROS_DISTRO}-navigation2 \
+                       ros-${ROS_DISTRO}-nav2-bringup \
+                       ros-${ROS_DISTRO}-pointcloud-to-laserscan \
+                       ros-${ROS_DISTRO}-gazebo-msgs \
+                       ros-${ROS_DISTRO}-ackermann-msgs \
+                       ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+                       ros-${ROS_DISTRO}-control-toolbox \
+                       ros-${ROS_DISTRO}-nav-msgs 
 
 COPY cleanup.bash /data/workspace/cleanup.bash
 
@@ -135,7 +135,7 @@ COPY LaunchSimulation.bash /data/workspace/LaunchSimulation.bash
 COPY LaunchNavStack.bash /data/workspace/LaunchNavStack.bash
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp 
-
+ENV LAUNCH_FULLSCREEN_OPT=0
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
  
