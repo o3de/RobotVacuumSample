@@ -6,7 +6,10 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 
+unset LD_LIBRARY_PATH
+
+source /opt/ros/$ROS_DISTRO/setup.bash
+
 cd /data/workspace/RobotVacuumSample/launch
 
 ros2 launch navigation.launch.py
-

@@ -131,26 +131,11 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         echo "Unsupported IMAGE_TYPE: ${IMAGE_TYPE}" && exit 1; \
     fi
 
-# Add the appropriate ros2 environment setup script to the system startup
-RUN echo "[Unit]" > /etc/systemd/system/setup_ros.service \
-    && echo "After=network.target" >> /etc/systemd/system/setup_ros.service \
-    && echo "" >> /etc/systemd/system/setup_ros.service \
-    && echo "[Service]" >> /etc/systemd/system/setup_ros.service \
-    && if [ "${ROS_DISTRO}" = "humble" ]; then \
-         echo "ExecStart=/opt/ros/humble/setup.bash" >> /etc/systemd/system/setup_ros.service; \
-       elif [ "${ROS_DISTRO}" = "galactic" ]; then \
-         echo "ExecStart=/opt/ros/galactic/setup.bash" >> /etc/systemd/system/setup_ros.service; \
-       fi \
-    && echo "" >> /etc/systemd/system/setup_ros.service \
-    && echo "[Install]" >> /etc/systemd/system/setup_ros.service \
-    && echo "WantedBy=default.target" >> /etc/systemd/system/setup_ros.service \
-    && echo "" >> /etc/systemd/system/setup_ros.service
-
 COPY LaunchSimulation.bash /data/workspace/LaunchSimulation.bash
 COPY LaunchNavStack.bash /data/workspace/LaunchNavStack.bash
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp 
-
+ENV LAUNCH_FULLSCREEN_OPT=0
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
  
