@@ -83,15 +83,15 @@ RUN apt-get install -y --no-install-recommends git \
                        libxcb-randr0 \
                        libnvidia-gl-470 \
                        ufw \
-                       ros-${ROS_VERSION}-slam-toolbox \
-                       ros-${ROS_VERSION}-navigation2 \
-                       ros-${ROS_VERSION}-nav2-bringup \
-                       ros-${ROS_VERSION}-pointcloud-to-laserscan \
-                       ros-${ROS_VERSION}-gazebo-msgs \
-                       ros-${ROS_VERSION}-ackermann-msgs \
-                       ros-${ROS_VERSION}-rmw-cyclonedds-cpp \
-                       ros-${ROS_VERSION}-control-toolbox \
-                       ros-${ROS_VERSION}-nav-msgs 
+                       ros-${ROS_DISTRO}-slam-toolbox \
+                       ros-${ROS_DISTRO}-navigation2 \
+                       ros-${ROS_DISTRO}-nav2-bringup \
+                       ros-${ROS_DISTRO}-pointcloud-to-laserscan \
+                       ros-${ROS_DISTRO}-gazebo-msgs \
+                       ros-${ROS_DISTRO}-ackermann-msgs \
+                       ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+                       ros-${ROS_DISTRO}-control-toolbox \
+                       ros-${ROS_DISTRO}-nav-msgs 
 
 COPY cleanup.bash /data/workspace/cleanup.bash
 
@@ -130,6 +130,21 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
     else \
         echo "Unsupported IMAGE_TYPE: ${IMAGE_TYPE}" && exit 1; \
     fi
+
+# Add the appropriate ros2 environment setup script to the system startup
+RUN echo "[Unit]" > /etc/systemd/system/setup_ros.service \
+    && echo "After=network.target" >> /etc/systemd/system/setup_ros.service \
+    && echo "" >> /etc/systemd/system/setup_ros.service \
+    && echo "[Service]" >> /etc/systemd/system/setup_ros.service \
+    && if [ "${ROS_DISTRO}" = "humble" ]; then \
+         echo "ExecStart=/opt/ros/humble/setup.bash" >> /etc/systemd/system/setup_ros.service; \
+       elif [ "${ROS_DISTRO}" = "galactic" ]; then \
+         echo "ExecStart=/opt/ros/galactic/setup.bash" >> /etc/systemd/system/setup_ros.service; \
+       fi \
+    && echo "" >> /etc/systemd/system/setup_ros.service \
+    && echo "[Install]" >> /etc/systemd/system/setup_ros.service \
+    && echo "WantedBy=default.target" >> /etc/systemd/system/setup_ros.service \
+    && echo "" >> /etc/systemd/system/setup_ros.service
 
 COPY LaunchSimulation.bash /data/workspace/LaunchSimulation.bash
 COPY LaunchNavStack.bash /data/workspace/LaunchNavStack.bash
