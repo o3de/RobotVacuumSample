@@ -15,7 +15,7 @@ export LD_LIBRARY_PATH=/data/workspace/RobotVacuumSample/build/linux/bin/profile
 if [ -d /data/workspace/RobotVacuumSample/build/linux/bin/profile ]
 then
     cd /data/workspace/RobotVacuumSample/build/linux/bin/profile
-    ./RobotVacuumSample.GameLauncher -bg_ConnectToAssetProcessor=0 > /data/workspace/simulation_launch.log 2>&1
+    ./RobotVacuumSample.GameLauncher -r_fullscreen=$LAUNCH_FULLSCREEN_OPT -bg_ConnectToAssetProcessor=0 > /data/workspace/simulation_launch.log 2>&1
 else
     echo "Simulation not installed on this image"
 fi
