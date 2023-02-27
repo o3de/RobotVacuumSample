@@ -22,7 +22,7 @@ if(NOT PROJECT_NAME)
             elseif(json_error AND ${engine_finder_cmake_value} STREQUAL "NOTFOUND")
                 # When the error value is just NOTFOUND that means there is a JSON
                 # parsing error, and not simply a missing key 
-                message(WARNING "Unable to read 'engine_finder_cmake_path'.\nError: ${json_error} ${engine_finder_cmake_value}")
+                message(WARNING "Unable to read 'engine_finder_cmake_path' from '${project_json_file_path}'.\nError: ${json_error} ${engine_finder_cmake_value}")
             endif()
         endif()
     endfunction()
