@@ -858,7 +858,7 @@
                     }
                 },
                 "Component_[12927181747641970582]": {
-                    "$type": "EditorColliderComponent",
+                    "$type": "EditorMeshColliderComponent",
                     "Id": 12927181747641970582,
                     "ColliderConfiguration": {
                         "MaterialSlots": {
@@ -3724,7 +3724,7 @@
                     "Id": 11858580036815791673
                 },
                 "Component_[1817880946152815022]": {
-                    "$type": "EditorColliderComponent",
+                    "$type": "EditorMeshColliderComponent",
                     "Id": 1817880946152815022,
                     "ColliderConfiguration": {
                         "MaterialSlots": {
