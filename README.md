@@ -1,6 +1,12 @@
-# RobotVacuumSample
+# O3DE Simulation - Robot Vacuum Sample 
 
 This sample project demonstrates a robotic vacuum simulation project navigating through the O3DE Loft scene using the ROS 2 Gem and the ROS 2 navigation stack.
+
+### Demo video
+
+https://user-images.githubusercontent.com/82551958/229621938-da2244c7-69c1-4240-9f85-f883ccada128.mp4
+
+### Image
 
 ![image](https://user-images.githubusercontent.com/16702721/174113203-e22cfd37-1bd5-4e42-a543-17b92de96c13.png)
 
