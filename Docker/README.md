@@ -125,8 +125,8 @@ In addition the repositories, the following arguments target the branch, commit,
 
 | Argument                | Repository                       | Default     |
 |-------------------------|----------------------------------|-------------|
-| O3DE_BRANCH             | O3DE                             | 606fed5     |
-| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | f1d8afe     |
+| O3DE_BRANCH             | O3DE                             | 3ec71ff     |
+| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | 3464657     |
 | LOFT_GEM_BRANCH         | Loft ArchVis Sample Scene        | main        |
 | ROBOT_VAC_SAMPLE_BRANCH | Loft Scene Simulation repository | main        |
 
