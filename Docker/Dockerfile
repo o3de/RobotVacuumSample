@@ -19,7 +19,7 @@ ARG IMAGE_TYPE=simulation  # Default to 'simulation'
 
 # Arguments for the source repos needed for the robot vacuum sample docker
 ARG O3DE_REPO=https://github.com/o3de/o3de.git
-ARG O3DE_BRANCH=3ec71ff
+ARG O3DE_BRANCH=5b30aaf
 
 ARG O3DE_EXTRAS_REPO=https://github.com/o3de/o3de-extras.git
 ARG O3DE_EXTRAS_BRANCH=3464657
