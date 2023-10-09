@@ -77,12 +77,7 @@
                 },
                 "Component_[4358438849696264694]": {
                     "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
-                    "Id": 4358438849696264694,
-                    "Controller": {
-                        "Configuration": {
-                            "EditorEntityId": 5766567449104301076
-                        }
-                    }
+                    "Id": 4358438849696264694
                 },
                 "Component_[5247198885622374930]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -876,7 +871,7 @@
                                     "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
                                     "subId": 3058355074
                                 },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.pxmesh"
+                                "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -885,7 +880,7 @@
                                         "subId": 3058355074
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.pxmesh"
+                                    "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
                                 }
                             }
                         }
@@ -1073,8 +1068,8 @@
                 "Component_[17368774951420809643]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 17368774951420809643,
-                    "DisabledComponents": [
-                        {
+                    "DisabledComponents": {
+                        "Component_[14386255473429959438]": {
                             "$type": "EditorColliderComponent",
                             "Id": 14386255473429959438,
                             "ColliderConfiguration": {
@@ -1108,7 +1103,7 @@
                                 }
                             }
                         }
-                    ]
+                    }
                 },
                 "Component_[18180067841158939512]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -3727,6 +3722,7 @@
                     "$type": "EditorMeshColliderComponent",
                     "Id": 1817880946152815022,
                     "ColliderConfiguration": {
+                        "InSceneQueries": false,
                         "MaterialSlots": {
                             "Slots": [
                                 {
@@ -3742,7 +3738,7 @@
                                     "guid": "{5AE935FF-A90A-59AF-BFD4-F38CEB3F8CDF}",
                                     "subId": 3876031564
                                 },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_base_link.pxmesh"
+                                "assetHint": "assets/robovac/assets/robot_vacuum_base_link.fbx.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -3751,7 +3747,7 @@
                                         "subId": 3876031564
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/robovac/assets/robot_vacuum_base_link.pxmesh"
+                                    "assetHint": "assets/robovac/assets/robot_vacuum_base_link.fbx.pxmesh"
                                 }
                             }
                         }
@@ -3771,7 +3767,7 @@
                                     "guid": "{5AE935FF-A90A-59AF-BFD4-F38CEB3F8CDF}",
                                     "subId": 281735281
                                 },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_base_link.azmodel"
+                                "assetHint": "assets/robovac/assets/robot_vacuum_base_link.fbx.azmodel"
                             }
                         }
                     }
@@ -4833,22 +4829,12 @@
                     "m_template": {
                         "$type": "ROS2LidarSensorComponent",
                         "SensorConfiguration": {
-                            "Visualise": false,
                             "Publishers": {
                                 "sensor_msgs::msg::PointCloud2": {
                                     "Type": "sensor_msgs::msg::PointCloud2",
                                     "Topic": "pc"
                                 }
                             }
-                        },
-                        "LidarParameters": {
-                            "Layers": 16,
-                            "Points per layer": 516,
-                            "Min horizontal angle": -90.0,
-                            "Max horizontal angle": 90.0,
-                            "Min vertical angle": 5.0,
-                            "Max vertical angle": -10.0,
-                            "Max range": 30.0
                         }
                     }
                 },
@@ -5000,7 +4986,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 14081951032431453423,
                     "Child Entity Order": [
-                        "Instance_[8975764853543]/ContainerEntity",
+                        "",
                         "Entity_[5002252716067]"
                     ]
                 },
@@ -5037,38 +5023,6 @@
                     "Id": 9079236517366404702
                 }
             }
-        }
-    },
-    "Instances": {
-        "Instance_[8975764853543]": {
-            "Source": "Prefabs/Sensors/Imu.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[6700600896017100313]/Parent Entity",
-                    "value": "../Entity_[8859800736551]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[6700600896017100313]/Transform Data/Translate/0",
-                    "value": -0.09387588500976564
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[6700600896017100313]/Transform Data/Translate/2",
-                    "value": 0.04095920920372009
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[901516877242196147]/Child Entity Order/0",
-                    "value": "Entity_[690707340010]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[690707340010]/Components/Component_[12053638524449760314]/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                }
-            ]
         }
     }
 }
