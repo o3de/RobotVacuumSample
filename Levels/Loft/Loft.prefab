@@ -5814,11 +5814,6 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[30016776458747]/Components/Component_[1817880946152815022]/ColliderConfiguration/InSceneQueries",
-                    "value": true
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[29879337505275]/Components/Component_[8911318239089158695]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/robovac/assets/robot_vacuum_screenbody.fbx.azmodel"
                 },
