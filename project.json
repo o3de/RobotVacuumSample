@@ -20,5 +20,6 @@
     "gem_names": [
         "ROS2",
         "ArchVis"
-    ]
+    ],
+    "engine_version": "2.1.0"
 }
