@@ -825,10 +825,6 @@
             "Id": "Entity_[29879337505275]",
             "Name": "robot_vacuum_screenbody",
             "Components": {
-                "Component_[1034281967815404319]": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 1034281967815404319
-                },
                 "Component_[12038150070017414966]": {
                     "$type": "EditorMaterialComponent",
                     "Id": 12038150070017414966,
@@ -852,40 +848,6 @@
                         }
                     }
                 },
-                "Component_[12927181747641970582]": {
-                    "$type": "EditorMeshColliderComponent",
-                    "Id": 12927181747641970582,
-                    "ColliderConfiguration": {
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Paint - Enamel Glossy (Black)"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "PhysicsAsset": {
-                            "Asset": {
-                                "assetId": {
-                                    "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
-                                    "subId": 3058355074
-                                },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
-                            },
-                            "Configuration": {
-                                "PhysicsAsset": {
-                                    "assetId": {
-                                        "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
-                                        "subId": 3058355074
-                                    },
-                                    "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
-                                }
-                            }
-                        }
-                    }
-                },
                 "Component_[14426575678646087440]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 14426575678646087440,
@@ -905,7 +867,47 @@
                 },
                 "Component_[18365507416467044590]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 18365507416467044590
+                    "Id": 18365507416467044590,
+                    "DisabledComponents": {
+                        "Component_[1034281967815404319]": {
+                            "$type": "EditorStaticRigidBodyComponent",
+                            "Id": 1034281967815404319
+                        },
+                        "Component_[12927181747641970582]": {
+                            "$type": "EditorMeshColliderComponent",
+                            "Id": 12927181747641970582,
+                            "ColliderConfiguration": {
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Paint - Enamel Glossy (Black)"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "PhysicsAsset": {
+                                    "Asset": {
+                                        "assetId": {
+                                            "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
+                                            "subId": 3058355074
+                                        },
+                                        "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
+                                    },
+                                    "Configuration": {
+                                        "PhysicsAsset": {
+                                            "assetId": {
+                                                "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
+                                                "subId": 3058355074
+                                            },
+                                            "loadBehavior": "QueueLoad",
+                                            "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.pxmesh"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "Component_[3402092418478522962]": {
                     "$type": "EditorVisibilityComponent",
@@ -933,7 +935,7 @@
                                     "guid": "{472B20AC-6801-58F9-B178-6ECB7D489E22}",
                                     "subId": 274459091
                                 },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.azmodel"
+                                "assetHint": "assets/robovac/assets/robot_vacuum_screenbody.fbx.azmodel"
                             }
                         }
                     }
@@ -3714,45 +3716,6 @@
             "Id": "Entity_[30016776458747]",
             "Name": "robot_vacuum_base_link",
             "Components": {
-                "Component_[11858580036815791673]": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 11858580036815791673
-                },
-                "Component_[1817880946152815022]": {
-                    "$type": "EditorMeshColliderComponent",
-                    "Id": 1817880946152815022,
-                    "ColliderConfiguration": {
-                        "InSceneQueries": false,
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "ABS (White)"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "PhysicsAsset": {
-                            "Asset": {
-                                "assetId": {
-                                    "guid": "{5AE935FF-A90A-59AF-BFD4-F38CEB3F8CDF}",
-                                    "subId": 3876031564
-                                },
-                                "assetHint": "assets/robovac/assets/robot_vacuum_base_link.fbx.pxmesh"
-                            },
-                            "Configuration": {
-                                "PhysicsAsset": {
-                                    "assetId": {
-                                        "guid": "{5AE935FF-A90A-59AF-BFD4-F38CEB3F8CDF}",
-                                        "subId": 3876031564
-                                    },
-                                    "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/robovac/assets/robot_vacuum_base_link.fbx.pxmesh"
-                                }
-                            }
-                        }
-                    }
-                },
                 "Component_[344085018016650483]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 344085018016650483
@@ -4596,6 +4559,9 @@
                     "$type": "EditorShapeColliderComponent",
                     "Id": 15286078445589088466,
                     "ColliderConfiguration": {
+                        "CollisionLayer": {
+                            "Index": 1
+                        },
                         "MaterialSlots": {
                             "Slots": [
                                 {
@@ -4607,7 +4573,7 @@
                     "ShapeConfigs": [
                         {
                             "$type": "CookedMeshShapeConfiguration",
-                            "CookedData": "TlhTAUNWWE0NAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAAAcSiq+iRKNPQrXo7scSiq+iRKNPQrXozt9VQK+e1UCPgrXozt9VQK+e1UCPgrXo7vsUTi+DSyHsgrXo7vsUTi+DSyHsgrXozuKEo09HEoqPgrXozt8VQI+fFUCPgrXozt8VQI+fFUCPgrXo7uKEo09HEoqPgrXo7sNLAey7FE4PgrXo7sNLAey7FE4PgrXozsbSiq+jRKNvQrXo7t7VQK+fVUCvgrXo7t7VQK+fVUCvgrXozsbSiq+jRKNvQrXozuHEo29HEoqvgrXo7uHEo29HEoqvgrXozsUwsoy7FE4vgrXo7sUwsoy7FE4vgrXozsbSio+ixKNPQrXozsbSio+ixKNPQrXo7uMEo29G0oqPgrXozuOEo09G0oqvgrXozt+VQI+e1UCvgrXozsdSio+hxKNvQrXozvsUTg+AAAAAArXozvsUTg+AAAAAArXo7uMEo29G0oqPgrXo7sdSio+hxKNvQrXo7t+VQI+e1UCvgrXo7uOEo09G0oqvgrXo7sAAAAAAAAAAAAAgD8K16O7AAAQADHbVL/aOQ4/AAAAAELHNL4QAAQYvhR7v7rFRz4AAAAAQsc0vhQABBncOQ4/MNtUPwAAAABCxzS+GAAEDbrFRz6+FHs/AAAAAELHNL4cAAQQLttUv9w5Dr8AAAAAQcc0viAABAe+FHu/yMVHvgAAAABDxzS+JAAEFNg5Dr8z21S/AAAAAEHHNL4oAAQGu8VHvr4Ue78AAAAAQsc0viwABAYx21Q/2jkOPwAAAABCxzS+MAAEDL4Uez/IxUc+AAAAAELHNL40AAQE3DkOvzDbVD8AAAAAQsc0vjgABBfIxUe+vhR7PwAAAABDxzS+PAAEEjPbVD/YOQ6/AAAAAEPHNL5AAAQAwBR7P7PFR74AAAAAQ8c0vkQABAQAAAAAAAAAAAAAgL8K16O7SAAQAdw5Dj8w21S/AAAAAELHNL5YAAQCyMVHPr4Ue78AAAAAQ8c0vlwABAoUBwYLFgIBBQ8OERMXGBkaAAECAwAEBQEGBwgJBgkKCwwNDg8MDwUEEBEODRASExEUFQgHFBobFRwDAhYcFgsKHRkYHh0bGhkfEhANDAQAAxwKCQgVGx0eHx4YFx8XExIACQADAAQADAALAAEAAgAGAAUABwAIABEAEAANAA4ACgECAQsBDwIPAgYDCQMPAwQEDwQMBQ8FBwUGBg8HCAcPCA8IEQkKCQ8KDgoPCw8LDAwPDQ4NEA0PDg8PEQ8QEBEBAg8AAQIAAQsBCw8CBg8AAgYAAwQAAwkDCQ8DBA8EDA8ABAwFBg8FBw8ABQcABQYHCA8ABwgIDxEACBEACQoJCg8ACwwAEBEADRAADQ4ACg4KDg8LDA8NDg8NDxAPEBEAAAAA7FE4vuxROL4K16O77FE4PuxROD4K16M7KQOCOuaDAzccpd4p4Xv9Jhyl3inmgwM39lA9nOF7/Sb2UD2cZmCDN160DzHmQoYxpySmrgAAgL8K16M7Zrs3PqcvPTunLz07",
+                            "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAAAcSiq+iRKNPQrXo7scSiq+iRKNPQrXozt9VQK+e1UCPgrXozt9VQK+e1UCPgrXo7vsUTi+DSyHsgrXo7vsUTi+DSyHsgrXozuKEo09HEoqPgrXozt8VQI+fFUCPgrXozt8VQI+fFUCPgrXo7uKEo09HEoqPgrXo7sNLAey7FE4PgrXo7sNLAey7FE4PgrXozsbSiq+jRKNvQrXo7t7VQK+fVUCvgrXo7t7VQK+fVUCvgrXozsbSiq+jRKNvQrXozuHEo29HEoqvgrXo7uHEo29HEoqvgrXozsUwsoy7FE4vgrXo7sUwsoy7FE4vgrXozsbSio+ixKNPQrXozsbSio+ixKNPQrXo7uMEo29G0oqPgrXozuOEo09G0oqvgrXozt+VQI+e1UCvgrXozsdSio+hxKNvQrXozvsUTg+AAAAAArXozvsUTg+AAAAAArXo7uMEo29G0oqPgrXo7sdSio+hxKNvQrXo7t+VQI+e1UCvgrXo7uOEo09G0oqvgrXo7sAAAAAAAAAAAAAgD8K16O7AAAQADHbVL/aOQ4/AAAAAELHNL4QAAQYvhR7v7rFRz4AAAAAQsc0vhQABBncOQ4/MNtUPwAAAABCxzS+GAAEDbrFRz6+FHs/AAAAAELHNL4cAAQQLttUv9w5Dr8AAAAAQcc0viAABAe+FHu/yMVHvgAAAABDxzS+JAAEFNg5Dr8z21S/AAAAAEHHNL4oAAQGu8VHvr4Ue78AAAAAQsc0viwABAYx21Q/2jkOPwAAAABCxzS+MAAEDL4Uez/IxUc+AAAAAELHNL40AAQE3DkOvzDbVD8AAAAAQsc0vjgABBfIxUe+vhR7PwAAAABDxzS+PAAEEjPbVD/YOQ6/AAAAAEPHNL5AAAQAwBR7P7PFR74AAAAAQ8c0vkQABAQAAAAAAAAAAAAAgL8K16O7SAAQAdw5Dj8w21S/AAAAAELHNL5YAAQCyMVHPr4Ue78AAAAAQ8c0vlwABAoUBwYLFgIBBQ8OERMXGBkaAAECAwAEBQEGBwgJBgkKCwwNDg8MDwUEEBEODRASExEUFQgHFBobFRwDAhYcFgsKHRkYHh0bGhkfEhANDAQAAxwKCQgVGx0eHx4YFx8XExIACQADAAQADAALAAEAAgAGAAUABwAIABEAEAANAA4ACgECAQsBDwIPAgYDCQMPAwQEDwQMBQ8FBwUGBg8HCAcPCA8IEQkKCQ8KDgoPCw8LDAwPDQ4NEA0PDg8PEQ8QEBEBAg8AAQIAAQsBCw8CBg8AAgYAAwQAAwkDCQ8DBA8EDA8ABAwFBg8FBw8ABQcABQYHCA8ABwgIDxEACBEACQoJCg8ACwwAEBEADRAADQ4ACg4KDg8LDA8NDg8NDxAPEBEAAAAA7FE4vuxROL4K16O77FE4PuxROD4K16M7KQOCOuaDAzccpd4p4Xv9Jhyl3inmgwM39lA9nOF7/Sb2UD2cZmCDN160DzHmQoYxpySmrgAAgL8AAIC/CtejO2a7Nz6nLz07py89Ow==",
                             "Type": 1
                         }
                     ]
@@ -4834,6 +4800,14 @@
                                     "Type": "sensor_msgs::msg::PointCloud2",
                                     "Topic": "pc"
                                 }
+                            }
+                        },
+                        "lidarCore": {
+                            "lidarConfiguration": {
+                                "lidarImplementation": "Scene Queries",
+                                "IgnoredLayerIndices": [
+                                    1
+                                ]
                             }
                         }
                     }
