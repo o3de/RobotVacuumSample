@@ -19,10 +19,10 @@ ARG IMAGE_TYPE=simulation  # Default to 'simulation'
 
 # Arguments for the source repos needed for the robot vacuum sample docker
 ARG O3DE_REPO=https://github.com/o3de/o3de.git
-ARG O3DE_BRANCH=5b30aaf
+ARG O3DE_BRANCH=2310.1
 
 ARG O3DE_EXTRAS_REPO=https://github.com/o3de/o3de-extras.git
-ARG O3DE_EXTRAS_BRANCH=3464657
+ARG O3DE_EXTRAS_BRANCH=2310.1
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
 ARG LOFT_GEM_BRANCH=main
@@ -99,7 +99,7 @@ COPY cleanup.bash /data/workspace/cleanup.bash
 RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         apt-get install -y --no-install-recommends ros-${ROS_DISTRO}-desktop && \
         cd $WORKSPACE && \
-        git clone --recursive $O3DE_REPO && \
+        git clone $O3DE_REPO && \
         git -C $WORKSPACE/o3de checkout $O3DE_BRANCH &&\
         git -C $WORKSPACE/o3de lfs install && \
         git -C $WORKSPACE/o3de lfs pull && \
@@ -108,12 +108,12 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         git clone $O3DE_EXTRAS_REPO && \
         git -C $WORKSPACE/o3de-extras checkout $O3DE_EXTRAS_BRANCH &&\
         $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/o3de-extras/Gems/ROS2 && \
-        git clone --recursive $LOFT_GEM_REPO && \
+        git clone $LOFT_GEM_REPO && \
         git -C $WORKSPACE/loft-arch-vis-sample checkout $LOFT_GEM_BRANCH &&\
         git -C $WORKSPACE/loft-arch-vis-sample lfs install && \
         git -C $WORKSPACE/loft-arch-vis-sample lfs pull && \
         $WORKSPACE/o3de/scripts/o3de.sh register -gp $WORKSPACE/loft-arch-vis-sample/Gems/ArchVis/ && \
-        git clone --recursive $ROBOT_VAC_SAMPLE_REPO && \
+        git clone $ROBOT_VAC_SAMPLE_REPO && \
         git -C $WORKSPACE/RobotVacuumSample checkout $ROBOT_VAC_SAMPLE_BRANCH &&\
         git -C $WORKSPACE/RobotVacuumSample lfs install && \
         git -C $WORKSPACE/RobotVacuumSample lfs pull && \
