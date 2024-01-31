@@ -89,13 +89,18 @@ Alternatively, you can use [Rocker](https://github.com/osrf/rocker) to run a GPU
 Launch the built simulation docker image with the following rocker command
 
 ```
-rocker --x11 --nvidia o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
+rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
 ```
 
 Once the simulation is up and running, launch the robot application docker image, which will bring up RViz to control the robot.
 
 ```
-rocker --x11 --nvidia o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
+rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
+```
+
+Note: you might reuse the simulation docker image instead.
+```
+rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_simulation:latest /data/workspace/LaunchNavStack.bash
 ```
 
 ## Advanced Options
@@ -125,8 +130,8 @@ In addition the repositories, the following arguments target the branch, commit,
 
 | Argument                | Repository                       | Default     |
 |-------------------------|----------------------------------|-------------|
-| O3DE_BRANCH             | O3DE                             | 3ec71ff     |
-| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | 3464657     |
+| O3DE_BRANCH             | O3DE                             | 2310.1      |
+| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | 2310.1      |
 | LOFT_GEM_BRANCH         | Loft ArchVis Sample Scene        | main        |
 | ROBOT_VAC_SAMPLE_BRANCH | Loft Scene Simulation repository | main        |
 
