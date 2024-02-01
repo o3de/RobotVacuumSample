@@ -7,7 +7,7 @@
                         "Layers": {
                             "LayerNames": [
                                 "Default",
-                                "Robot",
+                                {},
                                 {},
                                 {},
                                 {},
@@ -80,7 +80,7 @@
                                 },
                                 {
                                     "Id": {
-                                        "GroupId": "{B72454E5-5436-42F5-9BAE-6B9D2763E433}"
+                                        "GroupId": "{B1B55E11-BDFB-4F3D-B797-8B2797C2F136}"
                                     },
                                     "Name": "None",
                                     "Group": {
