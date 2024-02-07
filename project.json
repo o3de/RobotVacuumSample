@@ -12,14 +12,30 @@
         "RobotVacuumSample"
     ],
     "icon_path": "preview.png",
-    "engine": "o3de",
+    "engine": "o3de-sdk",
     "external_subdirectories": [
         "Gem"
     ],
     "restricted": "RobotVacuumSample",
     "gem_names": [
-        "ROS2",
-        "ArchVis"
+        "ArchVis",
+        "Atom",
+        "CameraFramework",
+        "DebugDraw",
+        "GameState",
+        "ImGui",
+        "LandscapeCanvas",
+        "LyShine",
+        "PhysX5",
+        "PrimitiveAssets",
+        "PrefabBuilder",
+        "ROS2>=3.1.0",
+        "SaveData",
+        "ScriptCanvasPhysics",
+        "ScriptEvents",
+        "StartingPointInput",
+        "TextureAtlas",
+        "WhiteBox"
     ],
-    "engine_version": "4.0.0"
+    "engine_version": "4.1.0"
 }
