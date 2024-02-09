@@ -1,13 +1,13 @@
 {
     "Amazon": {
         "Gems": {
-            "PhysX": {
+            "PhysX5": {
                 "PhysXSystemConfiguration": {
                     "CollisionConfig": {
                         "Layers": {
                             "LayerNames": [
                                 "Default",
-                                "Robot",
+                                {},
                                 {},
                                 {},
                                 {},
@@ -80,7 +80,7 @@
                                 },
                                 {
                                     "Id": {
-                                        "GroupId": "{B72454E5-5436-42F5-9BAE-6B9D2763E433}"
+                                        "GroupId": "{0CD57BF7-E5B5-4F99-A5CD-CBA5F6A4B017}"
                                     },
                                     "Name": "None",
                                     "Group": {

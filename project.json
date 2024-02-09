@@ -18,8 +18,20 @@
     ],
     "restricted": "RobotVacuumSample",
     "gem_names": [
-        "ROS2",
-        "ArchVis"
+        "ArchVis",
+        "Atom",
+        "CameraFramework",
+        "DebugDraw",
+        "GameState",
+        "ImGui",
+        "LyShine",
+        "PhysX5",
+        "PrimitiveAssets",
+        "PrefabBuilder",
+        "ROS2>=3.1.0",
+        "ScriptEvents",
+        "StartingPointInput",
+        "TextureAtlas"
     ],
-    "engine_version": "2.2.0"
+    "engine_version": "4.1.0"
 }
