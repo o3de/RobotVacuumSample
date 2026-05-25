@@ -24,7 +24,7 @@
                     "Entity_[4857644544770]",
                     "Entity_[50747416825914]",
                     "Entity_[2425721989581]",
-                    ""
+                    "Instance_[2783631341276]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -2897,7 +2897,8 @@
                             "CameraEntityId": "",
                             "ApertureF": 0.20000000298023224,
                             "FNumber": 0.5988770723342896,
-                            "FocusDistance": 5.0
+                            "FocusDistance": 5.0,
+                            "FocusedEntityId": ""
                         }
                     }
                 },
@@ -5814,272 +5815,13 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[29879337505275]/Components/Component_[8911318239089158695]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_screenbody.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30046841229819]/Components/Component_[2944624180499581291]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_wheel_right.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29909402276347]/Components/Component_[2190499505831493840]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/default_robot_vacuum_backbumper_67301715_5cb3_52f8_917e_6921a5bf842c_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29978121753083]/Components/Component_[3883591470894058362]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_o_leftsensor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30059726131707]/Components/Component_[13270684703792889476]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_osensorboardholder.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29960941883899]/Components/Component_[3606538888856163283]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_suspensionbracketleft.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29849272734203]/Components/Component_[4490309095897116918]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_suspensionbracketright.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29870747570683]/Components/Component_[16343894006606552871]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopesenesor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29917992210939]/Components/Component_[3733454906690206524]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_screenboltright.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30042546262523]/Components/Component_[13523723562617065969]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_rightdrivegear.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30038251295227]/Components/Component_[9002846224351078899]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_gearboxright.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29896517374459]/Components/Component_[4028256576739017793]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_battery.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30033956327931]/Components/Component_[1788839891950967143]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_brushc.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29892222407163]/Components/Component_[15483889718527123585]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_navdisplaycamera.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30055431164411]/Components/Component_[15286078445589088466]/ShapeConfigs/0/CookedData",
-                    "value": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAAAcSiq+iRKNPQrXo7scSiq+iRKNPQrXozt9VQK+e1UCPgrXozt9VQK+e1UCPgrXo7vsUTi+DSyHsgrXo7vsUTi+DSyHsgrXozuKEo09HEoqPgrXozt8VQI+fFUCPgrXozt8VQI+fFUCPgrXo7uKEo09HEoqPgrXo7sNLAey7FE4PgrXo7sNLAey7FE4PgrXozsbSiq+jRKNvQrXo7t7VQK+fVUCvgrXo7t7VQK+fVUCvgrXozsbSiq+jRKNvQrXozuHEo29HEoqvgrXo7uHEo29HEoqvgrXozsUwsoy7FE4vgrXo7sUwsoy7FE4vgrXozsbSio+ixKNPQrXozsbSio+ixKNPQrXo7uMEo29G0oqPgrXozuOEo09G0oqvgrXozt+VQI+e1UCvgrXozsdSio+hxKNvQrXozvsUTg+AAAAAArXozvsUTg+AAAAAArXo7uMEo29G0oqPgrXo7sdSio+hxKNvQrXo7t+VQI+e1UCvgrXo7uOEo09G0oqvgrXo7sAAAAAAAAAAAAAgD8K16O7AAAQADHbVL/aOQ4/AAAAAELHNL4QAAQYvhR7v7rFRz4AAAAAQsc0vhQABBncOQ4/MNtUPwAAAABCxzS+GAAEDbrFRz6+FHs/AAAAAELHNL4cAAQQLttUv9w5Dr8AAAAAQcc0viAABAe+FHu/yMVHvgAAAABDxzS+JAAEFNg5Dr8z21S/AAAAAEHHNL4oAAQGu8VHvr4Ue78AAAAAQsc0viwABAYx21Q/2jkOPwAAAABCxzS+MAAEDL4Uez/IxUc+AAAAAELHNL40AAQE3DkOvzDbVD8AAAAAQsc0vjgABBfIxUe+vhR7PwAAAABDxzS+PAAEEjPbVD/YOQ6/AAAAAEPHNL5AAAQAwBR7P7PFR74AAAAAQ8c0vkQABAQAAAAAAAAAAAAAgL8K16O7SAAQAdw5Dj8w21S/AAAAAELHNL5YAAQCyMVHPr4Ue78AAAAAQ8c0vlwABAoUBwYLFgIBBQ8OERMXGBkaAAECAwAEBQEGBwgJBgkKCwwNDg8MDwUEEBEODRASExEUFQgHFBobFRwDAhYcFgsKHRkYHh0bGhkfEhANDAQAAxwKCQgVGx0eHx4YFx8XExIACQADAAQADAALAAEAAgAGAAUABwAIABEAEAANAA4ACgECAQsBDwIPAgYDCQMPAwQEDwQMBQ8FBwUGBg8HCAcPCA8IEQkKCQ8KDgoPCw8LDAwPDQ4NEA0PDg8PEQ8QEBEBAg8AAQIAAQsBCw8CBg8AAgYAAwQAAwkDCQ8DBA8EDA8ABAwFBg8FBw8ABQcABQYHCA8ABwgIDxEACBEACQoJCg8ACwwAEBEADRAADQ4ACg4KDg8LDA8NDg8NDxAPEBEAAAAA7FE4vuxROL4K16O77FE4PuxROD4K16M7KQOCOuaDAzccpd4p4Xv9Jhyl3inmgwM39lA9nOF7/Sb2UD2cZmCDN160DzHmQoYxpySmrgAAgL8AAIC/CtejO2a7Nz6nLz07py89Ow=="
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30003891556859]/Components/Component_[1999492667193267803]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_rails.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29969531818491]/Components/Component_[17440446447410127143]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopetube2.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29973826785787]/Components/Component_[16545126784841313456]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_navsensor_right.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29935172080123]/Components/Component_[15829508757323248550]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_o_rightsensor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30021071426043]/Components/Component_[15570075083272083678]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_towerstablebase.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30025366393339]/Components/Component_[13415828729565192744]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_bottomwheeltwo.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29982416720379]/Components/Component_[4293762197237276665]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_gearboxleft.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29905107309051]/Components/Component_[5284750579111323888]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_depthdensorleft.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30008186524155]/Components/Component_[17267597419950408018]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_capture.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29853567701499]/Components/Component_[10128585282897083339]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopetube1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29844977766907]/Components/Component_[16257108268870135419]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_display.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29943762014715]/Components/Component_[2885749364514971795]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_towertop.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29939467047419]/Components/Component_[3619274201172812811]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_suspensionpinright.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29986711687675]/Components/Component_[12461709617141381815]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_suspensionpinleft.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29857862668795]/Components/Component_[575749947944104586]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscope.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30012481491451]/Components/Component_[4887345707029686]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopetube3.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29948056982011]/Components/Component_[10958693856247034196]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_backbumpersensor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29922287178235]/Components/Component_[8700461298150480671]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_navlogicboard.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30029661360635]/Components/Component_[10241546628040874120]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_mainlogicboard.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29991006654971]/Components/Component_[16696465630512642554]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_navsensor_left.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[8859800736551]/Components/Component_[14081951032431453423]/Child Entity Order/0",
-                    "value": "Entity_[5002252716067]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[8859800736551]/Components/Component_[14081951032431453423]/Child Entity Order/1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29952351949307]/Components/Component_[14941610346605136382]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_brushb.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29875042537979]/Components/Component_[14628550509204703666]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_o_centersensor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29887927439867]/Components/Component_[6737035184120536175]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_cpucover.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29995301622267]/Components/Component_[7755340245799285993]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_vacvasedoor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29900812341755]/Components/Component_[1622304547483087437]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_cpucoverdoor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[30051136197115]/Components/Component_[10171691559656925088]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_vaccase.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29926582145531]/Components/Component_[12993371939032694725]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_screenglass.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29862157636091]/Components/Component_[6266003952878640001]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_bottombase.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29956646916603]/Components/Component_[2603373599504855572]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_wheel_left.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29866452603387]/Components/Component_[8795666149603220285]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_cpucase.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29913697243643]/Components/Component_[14236251140759845637]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_depthdensorright.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29930877112827]/Components/Component_[10442046716566583284]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopeglass.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29965236851195]/Components/Component_[299216117097721405]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_o_sensor_board.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29883632472571]/Components/Component_[9350595258357518349]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_pariscopetube.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[29999596589563]/Components/Component_[6116338082524157478]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/robovac/assets/robot_vacuum_bottomwheelone.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10968750635921263389]/Parent Entity",
                     "value": "../Entity_[1146574390643]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10968750635921263389]/Transform Data/Translate/0",
-                    "value": -1.4129999876022339
+                    "value": -1.412999987602234
                 },
                 {
                     "op": "replace",
