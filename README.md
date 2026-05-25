@@ -36,7 +36,7 @@ The following steps will assume the following
 
 - The instructions will be based off of a common base folder: $DEMO_BASE (absolute path). For the steps below, we will use DEMO_BASE of ~/ for simplicty. 
 - This current project has been fetched to $DEMO_BASE
-- You have [ROS2](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html) installed and sourced:
+- You have [ROS 2](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html) installed and sourced:
   - for ROS 2 Jazzy: `source /opt/ros/jazzy/setup.bash`
   - you could also add this line to your `.profile` or `.bashrc`
   - check if ROS 2 is sourced in your current console with `echo $ROS_DISTRO`. You should see `humble` or `jazzy`.
@@ -54,6 +54,7 @@ sudo dpkg -i o3de_latest.deb
 
 ### 2. Download and register required Gems
 ```shell
+/opt/O3DE/26.05/scripts/o3de.sh register --repo-uri https://canonical.o3de.org
 /opt/O3DE/26.05/scripts/o3de.sh download --gem-name LevelGeoreferencing
 /opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2
 /opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Controllers
@@ -84,7 +85,7 @@ git clone https://github.com/o3de/RobotVacuumSample.git
 cd RobotVacuumSample
 git lfs install
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
-cmake --build build/linux --config profile
+cmake --build build/linux --config profile --target RobotVacuumSample RobotVacuumSample.GameLauncher RobotVacuumSample.Assets
 ```
 
 > **Tip:** To reduce download size and disk usage, you can clone only the latest commit by adding `--depth 1` to the clone command:
@@ -92,23 +93,19 @@ cmake --build build/linux --config profile
 > git clone https://github.com/o3de/RobotVacuumSample.git --depth 1
 > ```
 
-### 5. Launch Editor
+### 5. Launch the simulation
 
 ```shell
-/opt/O3DE/26.05/bin/Linux/profile/Default/Editor --project-path $DEMO_BASE
+cd $DEMO_BASE
+./build/linux/bin/profile/RobotVacuumSample.GameLauncher -bg_ConnectToAssetProcessor=0
 ```
 
-> **Note:** You might want to start `AssetProcessor` before the first start of the Editor, to ensure all assets are processed first.
-> ```shell
-> /opt/O3DE/26.05/bin/Linux/profile/Default/AssetProcessor --project-path $DEMO_BASE
-> ```
+## Running ROS 2 navigation example
 
-## Running ROS2 navigation example
+We can run ROS 2 navigation stack with our simulation scene and robot. When we run the navigation stack, it will start SLAM and build the map of environment based on Lidar sensor data. You can set navigation goals for the robot using RViz2 (which is also started with the launch file).
 
-We can run ROS2 navigation stack with our simulation scene and robot. When we run the navigation stack, it will start SLAM and build the map of environment based on Lidar sensor data. You can set navigation goals for the robot using RViz2 (which is also started with the launch file).
-
-- It is assumed that you have your [ROS2 environment sourced](https://docs.ros.org/en/rolling/Tutorials/Configuring-ROS2-Environment.html).
-- It is also assumed that you followed all the steps before build and launch the Editor.
+- It is assumed that you have your [ROS 2 environment sourced](https://docs.ros.org/en/rolling/Tutorials/Configuring-ROS2-Environment.html).
+- It is also assumed that you followed all the steps before and launched the simulation.
 
 ### 1. Install dependencies for navigation 
 
@@ -120,8 +117,10 @@ sudo apt install -y ros-${ROS_DISTRO}-slam-toolbox ros-${ROS_DISTRO}-navigation2
 
 ### 2. Run the simulation
 
-1. In `O3DE` Editor, select the `Loft` Level.
-1. Start simulation by clicking `Play Game` button or press `CTRL+G`
+```shell
+cd $DEMO_BASE
+./build/linux/bin/profile/RobotVacuumSample.GameLauncher -bg_ConnectToAssetProcessor=0
+```
 
 ### 3. Run the navigation stack
 
@@ -140,6 +139,20 @@ Use RViz GUI to set the goal by using the `2D Goal Pose` tool (upper toolbar).
 You can drag it to indicate direction you would like your robot to face when reaching the goal.
 
 Watch your robot go. You can set subsequent goals.
+
+## Modifying the simulation
+
+To modify the scene, robot, or sensor configuration, launch the O3DE Editor. The Editor also runs the `AssetProcessor` in the background, which processes any changed assets before they appear in the simulation.
+
+```shell
+cmake --build build/linux --config profile --target Editor
+/opt/O3DE/26.05/bin/Linux/profile/Default/Editor --project-path $DEMO_BASE
+```
+
+> **Note:** You might want to start `AssetProcessor` before the first start of the Editor, to ensure all assets are processed first.
+> ```shell
+> /opt/O3DE/26.05/bin/Linux/profile/Default/AssetProcessor --project-path $DEMO_BASE
+> ```
 
 ## Troubleshooting
 

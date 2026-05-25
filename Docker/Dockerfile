@@ -24,9 +24,6 @@ ARG LOFT_GEM_BRANCH=main
 ARG ROBOT_VAC_SAMPLE_REPO=https://github.com/o3de/RobotVacuumSample.git
 ARG ROBOT_VAC_SAMPLE_BRANCH=main
 
-# Additional argument to control build concurrency
-ARG CMAKE_JOBS=8
-
 ENV WORKSPACE=/data/workspace
 
 WORKDIR $WORKSPACE
@@ -132,9 +129,11 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
               -DLY_DISABLE_TEST_MODULES=ON && \
         cmake --build $WORKSPACE/RobotVacuumSample/build/linux \
               --config profile \
-              --target AssetProcessorBatch RobotVacuumSample.GameLauncher RobotVacuumSample.Assets \
-              -j $CMAKE_JOBS; \
+              --target RobotVacuumSample RobotVacuumSample.GameLauncher RobotVacuumSample.Assets; \
     fi
+
+# Remove source files of Loft scene to reduce image size
+RUN rm -rf $WORKSPACE/loft-arch-vis-sample
 
 COPY LaunchSimulation.bash /data/workspace/LaunchSimulation.bash
 COPY LaunchNavStack.bash /data/workspace/LaunchNavStack.bash

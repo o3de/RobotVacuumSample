@@ -1,0 +1,12 @@
+{
+    "O3DE":
+    {
+        "InputSystem":
+        {
+            "Mouse":
+            {
+                "CaptureMouseCursor": false
+            }
+        }
+    }
+}
