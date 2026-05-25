@@ -71,6 +71,11 @@ git lfs pull
 /opt/O3DE/26.05/scripts/o3de.sh register -gp $DEMO_BASE/loft-arch-vis-sample/Gems/ArchVis
 ```
 
+> **Tip:** To reduce download size and disk usage, you can clone only the latest commit by adding `--depth 1` to the clone command:
+> ```shell
+> git clone https://github.com/o3de/loft-arch-vis-sample.git -b main --depth 1
+> ```
+
 ### 4. Clone this project and build it
 
 ```shell
@@ -82,14 +87,21 @@ cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_
 cmake --build build/linux --config profile
 ```
 
+> **Tip:** To reduce download size and disk usage, you can clone only the latest commit by adding `--depth 1` to the clone command:
+> ```shell
+> git clone https://github.com/o3de/RobotVacuumSample.git --depth 1
+> ```
+
 ### 5. Launch Editor
 
-Note: you might want to start `AssetProcessor` before the first start of the Editor, to ensure all assets are processed first.
-
 ```shell
-/opt/O3DE/26.05/bin/Linux/profile/Default/AssetProcessor --project-path $DEMO_BASE
 /opt/O3DE/26.05/bin/Linux/profile/Default/Editor --project-path $DEMO_BASE
 ```
+
+> **Note:** You might want to start `AssetProcessor` before the first start of the Editor, to ensure all assets are processed first.
+> ```shell
+> /opt/O3DE/26.05/bin/Linux/profile/Default/AssetProcessor --project-path $DEMO_BASE
+> ```
 
 ## Running ROS2 navigation example
 
@@ -138,7 +150,7 @@ subsequent executions of the `Editor` fail to re-start the process for such Asse
 limitation of the number of files that can be watched by a single user. You can fix this by increasing the
 value, for example:
 
-```
+```shell
 sudo sysctl -w fs.inotify.max_user_watches=524288
 ```
 
