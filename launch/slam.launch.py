@@ -36,7 +36,8 @@ def generate_launch_description():
             parameters=[{
                 'min_height': 0.0,
                 'max_height': 0.5,
-                'range_min': 0.1
+                'range_min': 0.1,
+                'qos_overrides./scan.publisher.reliability': 'reliable',
             }],
             remappings=[
                 ('/cloud_in', '/pc'),
