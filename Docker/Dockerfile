@@ -3,8 +3,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 
-ARG ROS_VERSION=humble
-ARG UBUNTU_VERSION=jammy
+ARG ROS_VERSION=jazzy
+ARG UBUNTU_VERSION=noble
 
 FROM ros:${ROS_VERSION}-ros-base-${UBUNTU_VERSION}
 
@@ -30,18 +30,7 @@ WORKDIR $WORKSPACE
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y --no-install-recommends gpg wget curl
-
-# Ubuntu 22.04 (jammy) ships cmake 3.22 which is below O3DE's minimum. Install cmake 3.28 from Kitware.
-# Ubuntu 24.04 (noble) ships cmake 3.28 by default so no extra step is needed.
-RUN if [ "${UBUNTU_VERSION}" = "jammy" ]; then \
-      wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | \
-        gpg --dearmor - | \
-        tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null \
-      && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' | \
-        tee /etc/apt/sources.list.d/kitware.list >/dev/null \
-      && apt-get update; \
-    fi
+RUN apt-get install -y --no-install-recommends wget curl
 
 # Install build tools, O3DE system dependencies, and ROS 2 navigation packages
 RUN apt-get install -y --no-install-recommends \
@@ -79,6 +68,7 @@ RUN apt-get install -y --no-install-recommends \
         ros-${ROS_DISTRO}-ackermann-msgs \
         ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
         ros-${ROS_DISTRO}-control-toolbox \
+        ros-${ROS_DISTRO}-vision-msgs \
         ros-${ROS_DISTRO}-nav-msgs
 
 # Download and install the O3DE SDK
@@ -118,6 +108,7 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
     else \
         echo "Unsupported IMAGE_TYPE: ${IMAGE_TYPE}" && exit 1; \
     fi
+RUN apt-get install -y --no-install-recommends 
 
 # Build the project
 RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \

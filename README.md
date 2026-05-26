@@ -13,8 +13,11 @@ https://user-images.githubusercontent.com/82551958/229621938-da2244c7-69c1-4240-
 ## Requirements
 
 This project was tested on the following platforms:
-- Ubuntu 22.04 with ROS 2 Humble
 - Ubuntu 24.04 with ROS 2 Jazzy
+
+> **Note:** The O3DE simulation is also compatible with Ubuntu 22.04 and ROS 2 Humble.
+> However, the navigation launch files have been updated for ROS 2 Jazzy and would need to be reverted for Humble.
+> See the [Docker README](Docker/README.md#humble-compatibility) for details.
 
 The ROS 2 Gem is not available for Windows.
 
@@ -24,7 +27,7 @@ This project has the following dependencies:
 
 - [O3DE](https://github.com/o3de/o3de)
 - [ROS2 Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/ROS2)
-  - ROS 2 (Humble or Jazzy) itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/tree/development/Gems/ROS2#requirements)
+  - ROS 2 Jazzy itself is also required, see [Gem Requirements](https://github.com/o3de/o3de-extras/tree/development/Gems/ROS2#requirements)
 - [Loft Scene Sample](https://github.com/o3de/loft-arch-vis-sample)
   - ` main` branch should work.
 - [Robot Vacuum Sample Project](https://github.com/o3de/RobotVacuumSample)
@@ -39,7 +42,7 @@ The following steps will assume the following
 - You have [ROS 2](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debians.html) installed and sourced:
   - for ROS 2 Jazzy: `source /opt/ros/jazzy/setup.bash`
   - you could also add this line to your `.profile` or `.bashrc`
-  - check if ROS 2 is sourced in your current console with `echo $ROS_DISTRO`. You should see `humble` or `jazzy`.
+  - check if ROS 2 is sourced in your current console with `echo $ROS_DISTRO`. You should see `jazzy`.
 
 ### 1. Install and register the engine
 
@@ -99,6 +102,11 @@ cmake --build build/linux --config profile --target RobotVacuumSample RobotVacuu
 cd $DEMO_BASE
 ./build/linux/bin/profile/RobotVacuumSample.GameLauncher -bg_ConnectToAssetProcessor=0
 ```
+
+## Running with Docker
+
+As an alternative to the manual setup above, a Docker-based workflow is available in the [`Docker/`](Docker/) directory.
+See [Docker/README.md](Docker/README.md) for build and run instructions.
 
 ## Running ROS 2 navigation example
 
