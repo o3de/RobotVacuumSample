@@ -90,16 +90,16 @@ xhost -local:root
 
 ### Custom SDK installer
 
-| Argument       | Description                      | Default                                                                     |
-|----------------|----------------------------------|-----------------------------------------------------------------------------|
-| `O3DE_DEB_URL` | URL of the O3DE SDK `.deb` file  | `https://o3debinaries.org/stabilization-26050/Latest/Linux/o3de_latest.deb` |
+| Argument       | Description                      | Default                                                      |
+|----------------|----------------------------------|--------------------------------------------------------------|
+| `O3DE_DEB_URL` | URL of the O3DE SDK `.deb` file  | `https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb` |
 
 ### Custom source repositories and branches
 
 | Argument                | Repository               | Default                                            |
 |-------------------------|--------------------------|----------------------------------------------------|
 | `LOFT_GEM_REPO`         | Loft ArchVis Scene Gem   | `https://github.com/o3de/loft-arch-vis-sample.git` |
-| `ROBOT_VAC_SAMPLE_REPO` | Robot Vacuum Sample      | `https://github.com/o3de/RobotVacuumSample.git`   |
+| `ROBOT_VAC_SAMPLE_REPO` | Robot Vacuum Sample      | `https://github.com/o3de/RobotVacuumSample.git`    |
 
 | Argument                  | Repository               | Default |
 |---------------------------|--------------------------|---------|

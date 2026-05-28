@@ -47,8 +47,7 @@ The following steps will assume the following
 ### 1. Install and register the engine
 
 ```shell
-# TODO: change to 2605.0 release when available
-wget https://o3debinaries.org/stabilization-26050/Latest/Linux/o3de_latest.deb
+wget https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb
 sudo dpkg -i o3de_latest.deb
 /opt/O3DE/26.05/python/get_python.sh
 /opt/O3DE/26.05/scripts/o3de.sh register --this-engine

@@ -15,7 +15,7 @@ ARG UBUNTU_VERSION
 ARG IMAGE_TYPE=simulation
 
 # O3DE SDK installer URL and install path
-ARG O3DE_DEB_URL=https://o3debinaries.org/stabilization-26050/Latest/Linux/o3de_latest.deb
+ARG O3DE_DEB_URL=https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb
 ARG O3DE_INSTALL_DIR=/opt/O3DE/26.05
 
 ARG LOFT_GEM_REPO=https://github.com/o3de/loft-arch-vis-sample.git
@@ -123,8 +123,9 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
               --target RobotVacuumSample RobotVacuumSample.GameLauncher RobotVacuumSample.Assets; \
     fi
 
-# Remove source files of Loft scene to reduce image size
+# Remove source files to reduce the image size
 RUN rm -rf $WORKSPACE/loft-arch-vis-sample
+RUN rm -rf ~/.o3de/3rdParty/
 
 COPY LaunchSimulation.bash /data/workspace/LaunchSimulation.bash
 COPY LaunchNavStack.bash /data/workspace/LaunchNavStack.bash
