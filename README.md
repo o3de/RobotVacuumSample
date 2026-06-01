@@ -48,7 +48,7 @@ The following steps will assume the following
 
 ```shell
 wget https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb
-sudo dpkg -i o3de_latest.deb
+sudo dpkg -i o3de_2605_0.deb
 /opt/O3DE/26.05/python/get_python.sh
 /opt/O3DE/26.05/scripts/o3de.sh register --this-engine
 
@@ -86,6 +86,7 @@ cd $DEMO_BASE
 git clone https://github.com/o3de/RobotVacuumSample.git
 cd RobotVacuumSample
 git lfs install
+git lfs pull
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_STRIP_DEBUG_SYMBOLS=TRUE -DLY_DISABLE_TEST_MODULES=ON
 cmake --build build/linux --config profile --target RobotVacuumSample RobotVacuumSample.GameLauncher RobotVacuumSample.Assets
 ```

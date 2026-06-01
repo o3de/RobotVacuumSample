@@ -108,7 +108,6 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
     else \
         echo "Unsupported IMAGE_TYPE: ${IMAGE_TYPE}" && exit 1; \
     fi
-RUN apt-get install -y --no-install-recommends 
 
 # Build the project
 RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \

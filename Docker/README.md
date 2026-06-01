@@ -106,14 +106,6 @@ xhost -local:root
 | `LOFT_GEM_BRANCH`         | Loft ArchVis Scene Gem   | `main`  |
 | `ROBOT_VAC_SAMPLE_BRANCH` | Robot Vacuum Sample      | `main`  |
 
-### Optimizing the build
-
-`CMAKE_JOBS` controls the number of parallel compile jobs (default: `8`):
-
-```shell
-docker build --build-arg CMAKE_JOBS=16 -t o3de_robot_vacuum_simulation:latest .
-```
-
 ## Humble compatibility
 
 The O3DE simulation is also compatible with Ubuntu 22.04 and ROS 2 Humble. However, the navigation launch files
