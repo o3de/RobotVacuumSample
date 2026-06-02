@@ -83,10 +83,10 @@ RUN if [ "${IMAGE_TYPE}" = "simulation" ]; then \
         ${O3DE_INSTALL_DIR}/python/get_python.sh && \
         ${O3DE_INSTALL_DIR}/scripts/o3de.sh register --this-engine && \
         ${O3DE_INSTALL_DIR}/scripts/o3de.sh register --repo-uri https://canonical.o3de.org && \
-        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name LevelGeoreferencing && \
-        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2 && \
-        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Controllers && \
-        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Sensors; \
+        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0 && \
+        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2==4.2.0 && \
+        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0 && \
+        ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1; \
     fi
 
 # Clone and register the Loft Scene Gem

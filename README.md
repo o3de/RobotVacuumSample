@@ -57,10 +57,10 @@ sudo dpkg -i o3de_2605_0.deb
 ### 2. Download and register required Gems
 ```shell
 /opt/O3DE/26.05/scripts/o3de.sh register --repo-uri https://canonical.o3de.org
-/opt/O3DE/26.05/scripts/o3de.sh download --gem-name LevelGeoreferencing
-/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2
-/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Controllers
-/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Sensors
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2==4.2.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1
 ```
 
 ### 3. Clone and register the Loft Scene project locally
