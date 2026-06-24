@@ -17,4 +17,4 @@ When creating a pull request to this repository, make sure that:
 
 ### Additional information
 
-We recommend you to read [O3DE contribution guide](https://github.com/o3de/community/blob/main/CONTRIBUTING.md) and [ROS contribution guide](https://docs.ros.org/en/humble/Contributing.html) as well.
+We recommend you to read [O3DE contribution guide](https://github.com/o3de/community/blob/main/CONTRIBUTING.md) and [ROS contribution guide](https://docs.ros.org/en/jazzy/Contributing.html) as well.

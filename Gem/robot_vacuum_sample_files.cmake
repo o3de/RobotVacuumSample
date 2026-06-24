@@ -10,5 +10,4 @@ set(FILES
     Include/RobotVacuumSample/RobotVacuumSampleBus.h
     Source/RobotVacuumSampleSystemComponent.cpp
     Source/RobotVacuumSampleSystemComponent.h
-    enabled_gems.cmake
 )

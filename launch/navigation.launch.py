@@ -36,7 +36,7 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([str(navigation_launch_file)]),
             launch_arguments={
-                'params_file': str(navigation_param_file)
+                'params_file': str(navigation_param_file),
             }.items()
         ),
         Node(

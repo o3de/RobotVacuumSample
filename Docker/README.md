@@ -1,139 +1,124 @@
-# Docker scripts for running the O3DE Demo Project
+# Docker scripts for running the O3DE Robot Vacuum Sample
 
-The following Dockerfiles defined in this path will prepare the appropiate ROS2 package <br>
-(Ubuntu 20.04/Focal + Galactic or Ubuntu 22.04/Jammy + Humble) based environment and build<br>
-the components necessary to run the O3DE demo project simulator through the O3DE engine.
+This directory contains a Dockerfile and helper scripts for building and running the O3DE Robot Vacuum Sample project.
+The Docker image is based on Ubuntu 24.04 (Noble) with ROS 2 Jazzy.
+
+> **Note:** The O3DE simulation is also compatible with Ubuntu 22.04 and ROS 2 Humble.
+> However, the navigation launch files have been updated for ROS 2 Jazzy and would need to be reverted for Humble.
+> See [Humble compatibility](#humble-compatibility) for details.
 
 ## Prerequisites
 
-* [Hardware requirements of o3de](https://www.o3de.org/docs/welcome-guide/requirements/)
-* Ubuntu 20.04 (Focal) or 22.04 (Jammy)
+* [Hardware requirements of O3DE](https://www.o3de.org/docs/welcome-guide/requirements/)
 * At least 60 GB of free disk space
 * Docker installed and configured
-  * **Note** It is recommended to have Docker installed correctly and in a secure manner so that the docker commands in this guide do not require elevated priviledges (sudo) in order to run them. See [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/) for more details.
-* [NVidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
+  * **Note:** It is recommended to have Docker installed correctly and in a secure manner so that the Docker commands in this guide do not require elevated privileges (sudo). See [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/) for more details.
+* [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 
 ## Building the Docker Image
 
-By default, the docker script provided in this project will build a docker image to run the Robot Vacuum sample project
-on Ubuntu 22.04 (jammy) with the ROS2 Humble distribution. For example, to build the docker image, run the following
-command:
+By default, the Dockerfile builds a simulation image for Ubuntu 24.04 (Noble) with ROS 2 Jazzy.
+All Docker commands below should be run from the `Docker/` directory:
 
-```
-
+```shell
+cd Docker
 docker build -t o3de_robot_vacuum_simulation:latest .
 ```
 
-**Note** 
-The above command example tags specific commits for o3de, the ros2 gem, and the loft scene asset repos and are based on known working commits. See the Advanced Options section below for more information.
+This creates a Docker image named `o3de_robot_vacuum_simulation` that contains the simulation launcher,
+the navigation stack, and helper scripts (`LaunchSimulation.bash` and `LaunchNavStack.bash`).
 
+You can also create a separate image that contains only the navigation stack and RViz2:
 
-This will create a docker image named 'o3de_robot_vacuum_simulation' with the tag 'latest' that contains both the simulation launcher and the 
-navigation stack. It will also contain helper scripts that will launch either the simulation (LaunchSimulation.bash) or 
-the RViz2 (LaunchNavStack.bash).
-
-You can also create a separate docker image that only contains the navigation stack and RViz2 by supplying the argument 
-```IMAGE_TYPE``` and setting it to 'navstack':
-
-```
+```shell
 docker build --build-arg IMAGE_TYPE=navstack -t o3de_robot_vacuum_navstack:latest .
 ```
 
-ROS2 allows for communication across multiple docker images running on the same host, provided that they specify the 'bridge' 
-network type when launching the docker image.
-
-
 ## Running the Docker Image
 
-Launching O3DE applications in a Docker container requires GPU acceleration support. (Make sure that the [nvidia-docker 2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) is installed.)
+Launching O3DE applications in a Docker container requires GPU acceleration support.
+Make sure the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) is installed.
 
-### Direct Access to the X Server
-The simulation docker image should be launched first before bringing up the robot application. To run the robot application, 
-first allow the container root user to access the running X server for display
+### Step 1 — Allow display access
 
-```
+```shell
 xhost +local:root
 ```
 
-Then launch the built simulation docker image with the following command
+### Step 2 — Launch the simulation
 
-```
-docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
-```
-
-Once the simulation is up and running, launch the navigation stack inside the simulation docker image, which will bring up RViz to control the robot.
-
-```
-docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_simulation:latest /data/workspace/LaunchNavStack.bash
-
+```shell
+docker run --rm --network=host --gpus all \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  o3de_robot_vacuum_simulation:latest \
+  /data/workspace/LaunchSimulation.bash
 ```
 
-If you created a separate docker image 'o3de_robot_vacuum_navstack:latest' which only contains the navigation stack and RViz2, you can launch it using that image, provided that the simulation docker image 'o3de_robot_vacuum_simulation' is running.
+### Step 3 — Launch the navigation stack
 
+Once the simulation is running, start the navigation stack in a second terminal.
+You can use the same simulation image:
+
+```shell
+docker run --rm --network=host --gpus all \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  o3de_robot_vacuum_simulation:latest \
+  /data/workspace/LaunchNavStack.bash
 ```
-docker run --rm --network="bridge" --gpus all -e DISPLAY=:1 -v /tmp/.X11-unix:/tmp/.X11-unix -it o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
+
+Or the dedicated navstack image if you built one separately:
+
+```shell
+docker run --rm --network=host --gpus all \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  o3de_robot_vacuum_navstack:latest \
+  /data/workspace/LaunchNavStack.bash
 ```
 
+### Step 4 — Revoke display access when done
 
-
-Make sure to revoke access to the X server when the simulation ends.
-
-```
+```shell
 xhost -local:root
 ```
 
-### Running using Rocker
-
-Alternatively, you can use [Rocker](https://github.com/osrf/rocker) to run a GPU-accelerated docker image. 
-
-Launch the built simulation docker image with the following rocker command
-
-```
-rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_simulation:latest /data/workspace/LaunchSimulation.bash
-```
-
-Once the simulation is up and running, launch the robot application docker image, which will bring up RViz to control the robot.
-
-```
-rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_navstack:latest /data/workspace/LaunchNavStack.bash
-```
-
-Note: you might reuse the simulation docker image instead.
-```
-rocker --x11 --nvidia --network="bridge" o3de_robot_vacuum_simulation:latest /data/workspace/LaunchNavStack.bash
-```
+> **Note:** `--network=host` is recommended over `--network=bridge` to avoid ROS 2 multicast routing issues between containers on the same machine.
 
 ## Advanced Options
 
-### Target ROS2 Distribution
-The Docker script defaults to building an image based on Ubuntu 20.04 (bionic) and the ROS2 Humble distribution. This can be overridden 
-with a combination if the ```ROS_VERSION``` and ```UBUNTU_VERSION``` arguments.
+### Custom SDK installer
 
-| ROS2 Distro   | Repository                                |
-|---------------|-------------------------------------------|
-| galactic      | ROS_VERSION=galactic UBUNTU_VERSION=focal |
-| humble        | ROS_VERSION=humble UBUNTU_VERSION=humble  |
+| Argument       | Description                      | Default                                                      |
+|----------------|----------------------------------|--------------------------------------------------------------|
+| `O3DE_DEB_URL` | URL of the O3DE SDK `.deb` file  | `https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb` |
 
+### Custom source repositories and branches
 
-### Custom source repos and branches
+| Argument                | Repository               | Default                                            |
+|-------------------------|--------------------------|----------------------------------------------------|
+| `LOFT_GEM_REPO`         | Loft ArchVis Scene Gem   | `https://github.com/o3de/loft-arch-vis-sample.git` |
+| `ROBOT_VAC_SAMPLE_REPO` | Robot Vacuum Sample      | `https://github.com/o3de/RobotVacuumSample.git`    |
 
-The Dockerscripts use the following arguments to determine the repository to pull the source from. 
+| Argument                  | Repository               | Default |
+|---------------------------|--------------------------|---------|
+| `LOFT_GEM_BRANCH`         | Loft ArchVis Scene Gem   | `main`  |
+| `ROBOT_VAC_SAMPLE_BRANCH` | Robot Vacuum Sample      | `main`  |
 
-| Argument              | Repository                       | Default     |
-|-----------------------|----------------------------------|-------------|
-| O3DE_REPO             | O3DE                             | https://github.com/o3de/o3de.git                   |
-| O3DE_EXTRAS_REPO      | O3DE Extras                      | https://github.com/o3de/o3de-extras.git            |
-| LOFT_GEM_REPO         | Loft ArchVis Sample Scene        | https://github.com/o3de/loft-arch-vis-sample.git   |
-| ROBOT_VAC_SAMPLE_REPO | Loft Scene Simulation repository | https://github.com/o3de/RobotVacuumSample          |
+## Humble compatibility
 
-In addition the repositories, the following arguments target the branch, commit, or tag to pull from their corresponding repository
+The O3DE simulation is also compatible with Ubuntu 22.04 and ROS 2 Humble. However, the navigation launch files
+in the `launch/` directory have been updated for ROS 2 Jazzy in two ways:
 
-| Argument                | Repository                       | Default     |
-|-------------------------|----------------------------------|-------------|
-| O3DE_BRANCH             | O3DE                             | 2310.1      |
-| O3DE_EXTRAS_BRANCH      | O3DE Extras                      | 2310.1      |
-| LOFT_GEM_BRANCH         | Loft ArchVis Sample Scene        | main        |
-| ROBOT_VAC_SAMPLE_BRANCH | Loft Scene Simulation repository | main        |
+- Plugin names in `launch/config/navigation_params.yaml` use the `::` separator (e.g., `nav2_navfn_planner::NavfnPlanner`), while Humble expects `/` (e.g., `nav2_navfn_planner/NavfnPlanner`).
+- The `recoveries_server` node (Humble) was replaced by `behavior_server` (Jazzy) in the same file.
 
-### Optimizing the build process ###
-The docker script provides a cmake-specific argument override to control the number of parallel jobs that can be used during the build of the docker image. ```CMAKE_JOBS``` sets the maximum number of concurrent jobs cmake will run during its build process and defaults to 8 jobs. This number can be adjusted to better suit the hardware which is running the docker image build.
+To use Humble, change the Dockerfile defaults and revert those names in `navigation_params.yaml`:
+
+```shell
+docker build \
+  --build-arg ROS_VERSION=humble \
+  --build-arg UBUNTU_VERSION=jammy \
+  -t o3de_robot_vacuum_simulation:humble .
+```
